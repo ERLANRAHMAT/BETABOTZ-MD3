@@ -1,7 +1,8 @@
 /*
-  BetaBotz Case
-  Lann
-  JerOfc
+   Created By Lann && JerOfc
+   Github: https://github.com/ERLANRAHMAT/BETABOTZ-MD3
+   Created At: 17 June 2024
+   Dont Delete This Watermark and Sell This Code !!!!
 */
 //============ [ Module ] ============\\
 require('./settings')
