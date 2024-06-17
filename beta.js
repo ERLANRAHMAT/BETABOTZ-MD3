@@ -1,10 +1,8 @@
 /*
-   Created By Lann && JerOfc
-   Github: https://github.com/ERLANRAHMAT/BETABOTZ-MD3
-   Created At: 17 June 2024
-   Dont Delete This Watermark and Sell This Code !!!!
+  BetaBotz Case
+  Lann
+  JerOfc
 */
-
 //============ [ Module ] ============\\
 require('./settings')
 require('./menu/ui-menu')
@@ -567,21 +565,7 @@ switch (command) {
         case 'tqto':
     case 'thanksto':
         function _0x47f6(_0x19f817,_0x5c1671){const _0x527933=_0x390b();return _0x47f6=function(_0x37c948,_0x3a767f){_0x37c948=_0x37c948-(0x65*-0x59+-0x104d+-0xe*-0x3b7);let _0x38f358=_0x527933[_0x37c948];return _0x38f358;},_0x47f6(_0x19f817,_0x5c1671);}(function(_0x1ed1e7,_0x316954){const _0x49d6e3=_0x1ed1e7();function _0x20fff9(_0x33719f,_0x310eca,_0x714a12,_0x51fb3b,_0x43f0d3){return _0x47f6(_0x43f0d3-0x22c,_0x51fb3b);}function _0x2d10e9(_0x2378cd,_0x1a93da,_0xdc9e1a,_0x1c4837,_0x526372){return _0x47f6(_0x526372-0x3,_0x1a93da);}function _0x41e475(_0x128433,_0x56f888,_0x735af2,_0x3a7fe1,_0x4d2376){return _0x47f6(_0x4d2376- -0x230,_0x3a7fe1);}function _0x33e257(_0x69d442,_0x482bda,_0x80935b,_0x2b335c,_0x4ac3ec){return _0x47f6(_0x69d442-0x280,_0x80935b);}function _0x1796a3(_0x401d9a,_0x3fb337,_0x9e3597,_0x2f6573,_0x40baee){return _0x47f6(_0x2f6573- -0x2de,_0x401d9a);}while(!![]){try{const _0x2a83d7=parseInt(_0x41e475(-0x18e,-0x187,-0x18f,-0x17f,-0x186))/(-0x52*0x35+-0xb*0x243+-0x1*-0x29dc)+-parseInt(_0x41e475(-0x179,-0x17b,-0x17c,-0x187,-0x183))/(0x515*0x2+-0x16a6+-0xc7e*-0x1)*(-parseInt(_0x41e475(-0x19e,-0x1a1,-0x19b,-0x18f,-0x196))/(0x5b3*-0x2+-0x4f3+0x105c))+parseInt(_0x41e475(-0x177,-0x17a,-0x17f,-0x187,-0x182))/(-0x35*0x3+-0x14eb+0x158e)+-parseInt(_0x20fff9(0x2cd,0x2be,0x2ba,0x2ba,0x2c5))/(-0x1*-0x1abf+-0x2*-0x4e5+-0x1*0x2484)+-parseInt(_0x20fff9(0x2e1,0x2d1,0x2cf,0x2cd,0x2d8))/(0x1*-0x78+0x2002+-0x1f84)*(-parseInt(_0x41e475(-0x18f,-0x18c,-0x187,-0x18c,-0x192))/(0x1*-0x1d00+0x2092*-0x1+0x3d99))+-parseInt(_0x2d10e9(0xab,0xb3,0xaf,0xa9,0xaa))/(-0x1*-0x21f3+-0x1d2*-0xd+-0x1*0x3995)*(-parseInt(_0x1796a3(-0x23b,-0x23a,-0x240,-0x235,-0x231))/(-0x6b4+-0x1*0x128c+0x1949))+-parseInt(_0x1796a3(-0x241,-0x245,-0x242,-0x241,-0x24a))/(-0x673+-0xf89*-0x2+-0x1895);if(_0x2a83d7===_0x316954)break;else _0x49d6e3['push'](_0x49d6e3['shift']());}catch(_0x5b9c75){_0x49d6e3['push'](_0x49d6e3['shift']());}}}(_0x390b,-0x1*-0xccd1+0x5313e+-0x10*0x2cf8));function _0x4ff38d(_0x4b9d16,_0x45596e,_0x5c6819,_0x2e75b8,_0x18ce08){return _0x47f6(_0x4b9d16-0x3c4,_0x2e75b8);}function _0x390b(){const _0x3057b7=['◦\x20*ER','\x20T\x20O*','◦\x20*JE','2056iALQWd','LAN\x20R','4707NqPJli','355954DIJdIp','TABOT','6LMokQe','842JzIDua','1309968rLapnP','乂\x20*T\x20','1630505GuTijN','813ZVgyej','\x20K\x20S\x20','AHMAT','5397770LIPBNV','997199czRhNr','R\x20-\x20O','FC*\x0a','H\x20A\x20N','\x20/\x20BE','Z*\x0a'];_0x390b=function(){return _0x3057b7;};return _0x390b();}function _0x333259(_0x221ce9,_0x366ec0,_0x456ce9,_0x12f6af,_0xeb3b75){return _0x47f6(_0x12f6af- -0x1f2,_0x221ce9);}function _0x9b745b(_0x382cbd,_0x15ea74,_0x40d4ff,_0x187407,_0x2bd869){return _0x47f6(_0x382cbd-0x31,_0x40d4ff);}function _0x479729(_0x189495,_0x3c33b0,_0xfea9fb,_0x128bd5,_0x57e9da){return _0x47f6(_0x128bd5- -0x28,_0x3c33b0);}function _0x1c525d(_0x98790a,_0x24f679,_0x15c7e9,_0x37d9ad,_0x24752e){return _0x47f6(_0x24f679- -0x383,_0x98790a);}{let capt;capt=_0x479729(0x6d,0x71,0x74,0x70,0x77)+_0x479729(0x6d,0x73,0x75,0x79,0x6f)+_0x4ff38d(0x45f,0x461,0x466,0x459,0x46a)+_0x479729(0x72,0x73,0x74,0x7d,0x88)+'\x0a\x0a',capt+=_0x333259(-0x153,-0x14a,-0x156,-0x14e,-0x156)+_0x1c525d(-0x2df,-0x2db,-0x2e0,-0x2e5,-0x2e0)+_0x333259(-0x161,-0x153,-0x14b,-0x156,-0x14c)+_0x1c525d(-0x2df,-0x2e1,-0x2e0,-0x2df,-0x2eb)+_0x4ff38d(0x46f,0x467,0x474,0x46a,0x47b)+_0x1c525d(-0x2eb,-0x2e0,-0x2d9,-0x2ea,-0x2eb),capt+=_0x333259(-0x143,-0x148,-0x143,-0x14c,-0x141)+_0x479729(0x81,0x71,0x81,0x77,0x77)+_0x333259(-0x14e,-0x157,-0x14a,-0x152,-0x157),capt+='\x0a',reply(capt);}
-        break
-        case 'sc':
-        case 'script':
-        case 'scbot':
-        {
-        let capt;
-            capt = `乂 *S C R I P T  B O T*\n\n`;
-            capt += `◦ *Source Code* : https://github.com/ERLANRAHMAT/BETABOTZ-MD3\n`;
-            capt += `◦ *Source Api* : https://api.betabotz.eu.org\n`;
-            capt += `◦ *Created At* : 17 June 2024\n`;
-           capt += `\n`;      
-        
-        reply(capt);
-        }
-        break     
+        break    
         case 'owner':
        case 'creator':
         {
@@ -1925,6 +1909,26 @@ switch (command) {
            })
            }
            break
+           case 'ttsearch':
+           case 'tiktoksearch':{
+           	if (!args[0]) return reply(`Input Pencarian\n\nExample : ${prefix + command} Meme Tiktok`)
+           await loading();
+           let api = await fetch(`https://api.betabotz.eu.org/api/search/tiktoks?query=${args[0]}&apikey=${btz}`)
+           let betaku = await api.json();
+           let no = 1;
+           for (let i of betaku.result.data) {
+           	await sleep(2000) // 2 SECONDS 
+           	beta.sendMessage(m.chat, {
+           video: {
+           	url: i.play
+           },
+           caption: 'SUCCES : RESULT FROM api.betabotz.eu.org : ' + `${no++}`
+           }, {
+           	quoted: m
+           }) // KASIH DELAY BIAR ANGKA RESULT TIDAK NGACAK
+           }
+           }
+           break
            
            // STALK
            case 'ytstalk':
@@ -2036,6 +2040,7 @@ switch (command) {
         if (!/image/.test(mime)) return reply(`Send/Reply Foto Dengan Caption ${prefix + command}`)
         let media = await quoted.download()
         let img = await uploadImage(media)
+        await loading();
         let proses = await fetch(`https://api.betabotz.eu.org/api/tools/remini?url=${img}&apikey=${btz}`)
         let api = await proses.json();
         let buffer = await getBuffer(api.url)
@@ -2055,6 +2060,7 @@ switch (command) {
         if (!/image/.test(mime)) return reply(`Send/Reply Foto Dengan Caption ${prefix + command}`)
         let media = await quoted.download()
         let img = await uploadImage(media)
+        await loading();
         let proses = await fetch(`https://api.betabotz.eu.org/api/tools/remini-v2?url=${img}&apikey=${btz}`)
         let api = await proses.json();
         let buffer = await getBuffer(api.url)
@@ -2074,6 +2080,7 @@ switch (command) {
         if (!/image/.test(mime)) return reply(`Send/Reply Foto Dengan Caption ${prefix + command}`)
         let media = await quoted.download()
         let img = await uploadImage(media)
+        await loading();
         let proses = await fetch(`https://api.betabotz.eu.org/api/tools/remini-v3?url=${img}&apikey=${btz}`)
         let api = await proses.json();
         let buffer = await getBuffer(api.url)
@@ -2083,6 +2090,90 @@ switch (command) {
         }, {
         	quoted: m
         })
+        }
+        break
+        
+        // TOOLS
+        case 'whatmusic':
+        case 'whatmusik':{
+        	if (!args[0]) return reply(`Input Parameter Url Yang Ingin Di Tanyakan\n\nExample : ${prefix + command} Url`)
+        await loading();
+        let api = await fetch(`https://api.betabotz.eu.org/api/tools/whatmusic?url=${args[0]}&apikey=${btz}`)
+        let betaku = await api.json();
+        reply(betaku.result);
+        }
+        break
+        case 'removebg':
+        case 'snobg':{
+        	if (!quoted) return reply(`Fotonya Mana?`)
+        if (!/image/.test(mime)) return reply(`Send/Reply Foto Dengan Caption ${prefix + command}`)
+        let media = await quoted.download()
+        let img = await uploadImage(media)
+        await loading();
+        let api = await fetch(`https://api.betabotz.eu.org/api/tools/removebg?url=${img}&apikey=${btz}`)
+        let betaku = await api.json();
+        let buffer = await getBuffer(betaku.url.result)
+        beta.sendMessage(m.chat, {
+        	image: buffer,
+        caption: 'SUCCES : RESULT FROM api.betabotz.eu.org'
+        }, {
+        	quoted: m
+        })
+        }
+        break
+        case 'tinyurl':{
+        	if (!args[0]) return reply(`Input Parameter Url\n\nExample : ${prefix + command} Url`)
+        await loading();
+        let api = await fetch(`https://api.betabotz.eu.org/api/tools/tinyurl?url=${args[0]}&apikey=${btz}`)
+        let betaku = await api.json();
+        beta.sendMessage(m.chat, {
+        	text: 'SUCCES RESULT : ' + betaku.result,
+        mentions: [m.sender]
+        }, {
+        	quoted: m
+        })
+        }
+        break
+        
+        // INFORMATION 
+        case 'gempa':{
+        	await loading();
+        let api = await fetch(`https://api.betabotz.eu.org/api/search/gempa?apikey=${btz}`)
+        let betaku = await api.json();
+        
+        const {
+        Waktu,
+        Lintang,
+        Bujur,
+        Magnitudo,
+        Kedalaman,
+        Wilayah,
+        Map
+        } = betaku.result;
+        
+        beta.sendMessage(m.chat, {
+        image: {
+        	url: Map
+        },
+        caption: `TURUT BERDUKA CITA, ATAS TERJADINYA GEMPA DI WILAYAH ${Wilayah} PADA WAKTU ${Waktu} DENGAN KEDALAMAN ${Kedalaman}, DENGAN KEKUATAN GEMPA ${Magnitudo}\n\n> SEMOGA SAUDARA” KAMI YANG BERADA DI WILAYAH TERSEBUT SEMUA SELAMAT ATAS KEJADIAN GEMPA TERSEBUT .`
+        }, {
+        	quoted: m
+        })
+        }
+        break 
+        
+        // CEK KEY API
+        case 'cekapi':{
+        	if (!text) return reply(`Silahkan Input Kode Apikey Kamu, Yang Terdaftar Di Website Api https://betabotz.eu.org`)
+        await loading()
+        try {
+        	let api = await fetch(`https://api.betabotz.eu.org/api/checkkey?apikey=${text}`)
+        let body = await api.text()
+        m.reply(body)  
+        } catch (e) {
+        	console.log(e) 
+        reply('Apikey tidak terdaftar!')
+        }
         }
         break
         
