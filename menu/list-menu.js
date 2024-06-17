@@ -1,10 +1,3 @@
-/*
-   Created By Lann && JerOfc
-   Github: https://github.com/ERLANRAHMAT/BETABOTZ-MD3
-   Created At: 17 June 2024
-   Dont Delete This Watermark and Sell This Code !!!!
-*/
-
 const chalk = require('chalk')
 const fs = require('fs')
 
@@ -315,6 +308,7 @@ global.listphotooxy = (prefix) =>{
 global.listsearch = (prefix) =>{
 	return `
 > • ${prefix}jarak
+> • ${prefix}tiktoksearch
 `
 }
 
@@ -331,6 +325,11 @@ global.listtools = (prefix) =>{
 > • ${prefix}hd1
 > • ${prefix}hd2
 > • ${prefix}hd3
+> • ${prefix}gempa
+> • ${prefix}cekapi
+> • ${prefix}whatmusic
+> • ${prefix}removebg
+> • ${prefix}tinyurl
 `
 
 }
