@@ -1,10 +1,3 @@
-/*
-   Created By Lann && JerOfc
-   Github: https://github.com/ERLANRAHMAT/BETABOTZ-MD3
-   Created At: 17 June 2024
-   Dont Delete This Watermark and Sell This Code !!!!
-*/
-
 const fs = require('fs')
 const chalk = require('chalk')
 
@@ -50,6 +43,10 @@ global.fakelink = "https://api.betabotz.eu.org" // BEBAS ASAL JAN HAPUS
 // NAME STICKER \\
 global.packname = 'BETABOTZ'
 global.author = 'API'
+
+// TRUE OR FALSE \\
+
+global.autoread = true
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {

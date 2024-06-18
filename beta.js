@@ -221,10 +221,6 @@ module.exports = beta = async (beta, m, chatUpdate, store, antilink, antiwame, a
           }            
         beta.sendPresenceUpdate('available', m.chat)
 
-        // Auto Block +212
-        if (m.sender.startsWith('212') && global.autoblok212 === true) {
-            return beta.updateBlockStatus(m.sender, 'block')
-        }
         if (m.isGroup && !m.key.fromMe) {
         let mentionUser = [...new Set([...(m.mentionedJid || []), ...(m.quoted ? [m.quoted.sender] : [])])]
         for (let ment of mentionUser) {
@@ -633,6 +629,21 @@ switch (command) {
             reply('*Sukses Ganti Bot Ke mode Self, Jika Mau Ganti Bot  Ke Mode Public Silahkan Ke Nomor Bot Ketik .public*')
         }
         break
+        case 'autoread': {
+                if (!isCreator) return (global.message.isOwn)
+                if (args[0] === "on") {
+                    if (global.autoread === true) return reply("Udh on")
+                    global.autoread = true
+                    reply("Autoread berhasil diaktifkan")
+                } else if (args[0] === "off") {
+                    if (global.autoread === false) return reply("Udh off")
+                    global.autoread = false
+                    reply("Autoread berhasil dinonaktifkan")
+                } else {
+                    reply(`${prefix + command} on -- _mengaktifkan_\n${prefix + command} off -- _Menonaktifkan_`)
+                }
+            }
+                break
     case 'anticall':
         {
             if (!m.key.fromMe && !isCreator) return reply(global.message.isOwn)
@@ -875,6 +886,7 @@ switch (command) {
         {
         	if (!args[0]) return reply(`Input Parameter Url Dari ${command}\n\nExample : ${prefix + command} Url`)
         await loading();
+        try {
         let api = await fetch(`https://api.betabotz.eu.org/api/download/capcut?url=${args[0]}&apikey=${btz}`)
         let betaku = await api.json();
         
@@ -894,6 +906,10 @@ switch (command) {
         }, {
         	quoted: m
         })
+        } catch (e) {
+        	console.log(e)
+        reply(message.error);
+        }
         }
         break
         case 'pindl':
@@ -927,25 +943,19 @@ switch (command) {
         await loading();
         let api = await fetch(`https://api.betabotz.eu.org/api/download/threads?url=${args[0]}&apikey=${btz}`)
         let betaku = await api.json();
-        for (let i of betaku.result.image_urls) {
-        	beta.sendMessage(m.chat, {
-        image: {
-        	url : i
-        },
-        caption: 'SUCCES : RESULT FROM api.betabotz.eu.org'
-        }, {
-        	quoted: m
-        })
+        try {
+        	for (let i of betaku.result.video_urls) {
+        	beta.sendFile(m.chat, i.download_url, null, 'SUCCES : RESULT FROM api.betabotz.eu.org', m)
         }
-        for (let i of betaku.result.video_urls) {
-        	beta.sendMessage(m.chat, {
-        image: {
-        	url : i
-        },
-        caption: 'SUCCES : RESULT FROM api.betabotz.eu.org'
-        }, {
-        	quoted: m
-        })
+        } catch (e) {
+        	console.log(e)
+        }
+        try {
+        	for (let i of betaku.result.image_urls) {
+        	beta.sendFile(m.chat, i, null, 'SUCCES : RESULT FROM api.betabotz.eu.org', m)
+        }
+        } catch (e) {
+        	console.log(e)
         }
         }
         break
@@ -1034,6 +1044,15 @@ switch (command) {
         preview,
         url
         } = betaku.result.data
+        
+        beta.sendMessage(m.chat, {
+        image: {
+        	url: thumbnail
+        },
+        caption: `${title}`
+        }, {
+        	quoted: m
+        })
         
         beta.sendMessage(m.chat, {
         audio: {
@@ -1159,8 +1178,8 @@ switch (command) {
         })
         }
         break
-        case 'douyinslide':
-        case 'douyinimg':
+        case 'tiktokslide':
+        case 'tiktokimg':
         {
         	if (!args[0]) return reply(`Input Parameter Url Dari ${command}\n\nExample : ${prefix + command} Url`)
         await loading();
