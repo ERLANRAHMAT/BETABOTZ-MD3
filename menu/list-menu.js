@@ -317,6 +317,8 @@ global.liststalk = (prefix) =>{
 > • ${prefix}igstalk
 > • ${prefix}ttstalk
 > • ${prefix}ytstalk
+> • ${prefix}ffstalk
+> • ${prefix}mlstalk
 `
 }
 
@@ -330,6 +332,7 @@ global.listtools = (prefix) =>{
 > • ${prefix}whatmusic
 > • ${prefix}removebg
 > • ${prefix}tinyurl
+> • ${prefix}translate
 `
 
 }
