@@ -5,13 +5,14 @@
   "main": "main.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node main.js"
+    "start": "node start.js"
   },
   "author": "Lann",
   "license": "MIT",
   "dependencies": {
     "@whiskeysockets/baileys" : "^6.7.2",
     "@adiwajshing/keyed-db": "^0.2.4",
+    "@vitalets/google-translate-api": "^9.2.0",
     "awesome-phonenumber": "^2.64.0",
     "axios": "^0.24.0",
     "chalk": "^4.1.2",

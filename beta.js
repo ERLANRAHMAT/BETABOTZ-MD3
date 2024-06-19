@@ -2049,7 +2049,40 @@ switch (command) {
            }
            }
            break
-           
+           case 'mlstalk':
+           case 'stalkml':{
+           	if (!args[0]) return reply(`Input Id Game,Server${command}\n\nExample : ${prefix + command} 12383839,2828`)
+           let [idgame, serverlu] = text.split`,`
+           if (!idgame) return reply(`Id Game Kamu Wajib Di Isi`)
+           if (!serverlu) return reply(`Zone Id Game Kamu Wajib Di Isi`)
+           await loading();
+           let url = `https://api.betabotz.eu.org/api/stalk/ml?id=${idgame}&server=${serverlu}&apikey=${btz}`
+           let response = await axios(url)
+           let data = response.data.result.userName
+           beta.sendMessage(m.chat, {
+           	text: `*[ STALK ML ]*\n\n> NICKNAME : ${data}\n> ID : ${idgame}\n> SERVER : ${serverlu}`,
+           mentions: [m.sender]
+           },{
+           	quoted: m
+           })
+           }
+           break
+           case 'ffstalk':
+           case 'stalkff':
+           case 'cekidff':{
+           	if (!args[0]) return reply(`Input Id Game Free Fire\n\nExample : ${prefix + command} 1090537872`)
+           await loading();
+           let url = `https://api.betabotz.eu.org/api/stalk/ff?id=${args[0]}&apikey=${btz}`
+           let response = await axios(url);
+           let res = response.data.result.userNameGame;
+           beta.sendMessage(m.chat, {
+           	text: `*[ STALK FF ]*\n\n> NICKNAME : ${res}\n> ID : ${args[0]}`,
+           mentions: [m.sender]
+           }, {
+           	quoted: m
+           })
+           }
+           break
            
            // TOOLS HD © JERO 🗿
            case 'hd':
@@ -2175,7 +2208,7 @@ switch (command) {
         image: {
         	url: Map
         },
-        caption: `TURUT BERDUKA CITA, ATAS TERJADINYA GEMPA DI WILAYAH ${Wilayah} PADA WAKTU ${Waktu} DENGAN KEDALAMAN ${Kedalaman}, DENGAN KEKUATAN GEMPA ${Magnitudo}\n\n> SEMOGA SAUDARA” KAMI YANG BERADA DI WILAYAH TERSEBUT SEMUA SELAMAT ATAS KEJADIAN GEMPA TERSEBUT .`
+        caption: `TURUT BERDUKA CITA, ATAS TERJADINYA GEMPA DI WILAYAH ${Wilayah} PADA WAKTU ${Waktu} DENGAN KEDALAMAN ${Kedalaman}, DENGAN KEKUATAN GEMPA ${Magnitudo} Magnitudo\n\n> SEMOGA SAUDARA” KAMI YANG BERADA DI WILAYAH TERSEBUT SEMUA SELAMAT ATAS KEJADIAN GEMPA TERSEBUT .`
         }, {
         	quoted: m
         })
@@ -2196,6 +2229,30 @@ switch (command) {
         }
         }
         break
+        
+        // TRANSLATE
+        case 'translate': case 'tr': {
+                if (!text) return reply(`Contoh :
+1. Kirim perintah ${prefix + command} *kode bahasa* *teks*
+	Contoh : ${prefix + command} id KONTOL
+2. Reply chat dengan caption ${prefix + command} *kode bahasa*
+	Contoh : ${prefix + command} id KONTOL
+Daftar bahasa yang di dukung : https://cloud.google.com/translate/docs/languages`)
+const { translate } = require("@vitalets/google-translate-api");
+                let teks = m.quoted ? quoted.text : quoted.text.split(args[0])[1]
+                translate(teks, { to:
+                args[0]
+                })
+                .then((res) => {
+                    beta.sendMessage(m.chat, {
+                    	text: `${res.text}`,
+                    mentions: [m.sender]
+                    }, {
+                    	quoted: m
+                    })
+                })
+            }
+                break
         
         // Menu
         case 'menu': 
@@ -2647,9 +2704,18 @@ switch (command) {
 }
 
 } catch (err) {
-    m.reply(util.format(err))
+    	console.log(util.format(err))
+    let e = String(err)
+        if (e.includes("conflict")) return
+        if (e.includes("not-authorized")) return
+        if (e.includes("already-exists")) return
+        if (e.includes("rate-overlimit")) return
+        if (e.includes("Connection Closed")) return
+        if (e.includes("Timed Out")) return
+        if (e.includes("Value not found")) return
+        if (e.includes("Socket connection timeout")) return
+    }
 }
-}    
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
