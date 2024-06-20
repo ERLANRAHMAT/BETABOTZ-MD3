@@ -4,6 +4,7 @@
 - Menggunakan QR dan pairing code 
 - Fitur 90% implementasi dari website api
 - Informasi api [WhatsApp](https://whatsapp.com/channel/0029VaApYsQ5Ui2c2rKbpP0S)
+- Informasi Bot [WhatsApp](https://whatsapp.com/channel/0029VaiIG3UJpe8n3Y2MZ51z)
   ## Note!
   **Important :**
 - Jika mengalami kendala atau mau request feature bisa langsung pull atau membuat issues di repo ini
