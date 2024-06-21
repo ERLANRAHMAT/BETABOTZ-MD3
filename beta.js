@@ -39,6 +39,7 @@ const fetch = require('node-fetch')
 const {
 	makeid
 } = require('./lib/myfunc')
+
 const {
 getGroupAdmins,
     pickRandom,
@@ -49,12 +50,14 @@ getGroupAdmins,
     getRandom,
     runtime,
     jsonformat
-    } = require('./lib/bot/botFunc.js')
+} = require('./lib/bot/botFunc.js')
+
 const dateAndtime = require('./lib/bot/dateAndtime.js');    
 let _afk = JSON.parse(fs.readFileSync('./database/afk.json'));
 const afk = require("./lib/afk");
 const { smsg, fetchJson, getBuffer } = require('./lib/simple')
 const uploadImage = require('./lib/uploadImage');
+let ntnsfw = JSON.parse(fs.readFileSync('./database/nsfw.json'))
 
 //============ [ Function ] ============\\
 
@@ -91,6 +94,8 @@ module.exports = beta = async (beta, m, chatUpdate, store, antilink, antiwame, a
         const isLeft = _left.includes(m.chat)
         const time = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('HH:mm:ss z')
         const isAfkOn = afk.checkAfkUser(m.sender, _afk)
+        const Antinsfw = ntnsfw.includes(m.chat) ? true : false  
+        
         const reply = async (text) =>{
 	    return await beta.sendFakeLink(m.chat, text, salam, pushname, m)
         }
@@ -244,7 +249,7 @@ module.exports = beta = async (beta, m, chatUpdate, store, antilink, antiwame, a
         }
 
     async function loading() {
-	reply(`Mohon Tunggu Perintah ${command} Sedang Di Proses`)
+	reply(`Mohon Tunggu Perintah ${prefix + command} Sedang Di Proses`)
     }
     
     //============ [ Feature ] ============\\       
@@ -532,6 +537,33 @@ switch (command) {
             }
         }
         break
+        case 'nsfw': {
+                if (!isCreator) return reply('Fitur Ini Khusus Owner !')
+                if (!m.isGroup) return reply(global.message.isGroup)
+                if (!isBotAdmins) return reply(global.message.botNotAdmin)
+                if (args[0] === "on") {
+                    if (Antinsfw) return reply('Already activated')
+                    ntnsfw.push(from)
+                    fs.writeFileSync('./database/NSFW.json', JSON.stringify(ntnsfw))
+                    reply('Success in turning on NSFW in this group')
+                    var groupe = await beta.groupMetadata(from)
+                    var members = groupe['participants']
+                    var mems = []
+                    members.map(async adm => {
+                        mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
+                    })
+                } else if (args[0] === "off") {
+                    if (!Antinsfw) return reply('Already deactivated')
+                    let off = ntnsfw.indexOf(from)
+                    ntnsfw.splice(off, 1)
+                    fs.writeFileSync('./database/nsfw.json', JSON.stringify(ntnsfw))
+                    reply('Success in turning off NSFW in this group')
+                } else {
+                    reply(`Kirim perintah ${prefix + command} on/off\n\nContoh: ${prefix + command} on`)
+                }
+            }
+                break
+                
         //Info Menu
     case 'groupbot':
     case 'grubbot':
@@ -554,9 +586,10 @@ switch (command) {
         reply(capt);
         }
         break 
-    case 'tes':
     case 'runtime':
+    {
         reply(`Runtime : ${runtime(process.uptime())}`)
+        }
         break
         case 'credits':
         case 'tqto':
@@ -1049,7 +1082,7 @@ switch (command) {
         image: {
         	url: thumbnail
         },
-        caption: `${title}`
+        caption: `*[ SPOTIFY DL ]*\n\n> TITLE : ${title}\n> NAME : ${name}\n> DURASI : ${duration}\n> URL : ${url}`
         }, {
         	quoted: m
         })
@@ -1614,6 +1647,7 @@ switch (command) {
     case 'thighs':
     case 'zettai':
     {
+    	if (!Antinsfw) return reply('Fitur Nsfw Belum Di Aktifkan')
         await loading();
         try {
             if (command == 'gay') {
@@ -2215,6 +2249,27 @@ switch (command) {
         }
         break 
         
+        // ISLAMIC
+        case 'surah':{
+        	if (!args[0]) return reply(`Input Surah\n\nExample : ${prefix + command} 6`)
+        await loading();
+        let url = `https://api.betabotz.eu.org/api/muslim/surah?no=${args[0]}&apikey=${btz}`
+        let response = await axios(url)
+        	for (let res in response.data.result) {
+        let txt = ''
+        txt+=`> ARAB : ${res.arab}\n`
+        txt+=`> RUMI : ${res.rumi}\n`
+        txt+=`> LATIN : ${res.latin}\n`
+        beta.sendMessage(m.chat, {
+        text: txt,
+        mentions: [m.sender]
+        }, {
+        	quoted: m
+        })
+        }
+        }
+        
+        break
         // CEK KEY API
         case 'cekapi':{
         	if (!text) return reply(`Silahkan Input Kode Apikey Kamu, Yang Terdaftar Di Website Api https://betabotz.eu.org`)
@@ -2701,6 +2756,11 @@ const { translate } = require("@vitalets/google-translate-api");
         await reply(util.format(err))
     }
 }
+}
+
+// CEK BOT ACTIVE OR NO
+if ((budy) && ["bot", "Bot"].includes(budy) && !isCmd && !m.key.fromMe) {
+	reply(`Bot Activated " ${m.pushName} "`)
 }
 
 } catch (err) {
