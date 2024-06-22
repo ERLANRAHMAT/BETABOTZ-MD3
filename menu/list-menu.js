@@ -59,6 +59,8 @@ global.listai = (prefix) =>{
 > • ${prefix}aiimg
 > • ${prefix}bard
 > • ${prefix}bardimg
+> • ${prefix}bingchat
+> • ${prefix}bingimg
 `
 }
 
@@ -169,6 +171,8 @@ global.listdownload = (prefix) =>{
 > • ${prefix}instagram
 > • ${prefix}mediafire
 > • ${prefix}soundcloud
+> • ${prefix}download
+> • ${prefix}dl
 `
 }
 
