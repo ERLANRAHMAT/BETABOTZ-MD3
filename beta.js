@@ -698,6 +698,36 @@ switch (command) {
         */
         
         //Ai
+        case 'bingchat':{
+        	if (!args[0]) return reply(`Input Pesan Yang Ingin Di Tanyakan Kepada ${prefix + command}\n\nExample : ${prefix + command} Hello Siapakah JER`)
+        await loading();
+        let url = `https://api.betabotz.eu.org/api/search/bing-chat?text=${args[0]}&apikey=${btz}`
+        let response = await axios(url);
+        beta.sendMessage(m.chat, {
+        	text: response.data.message,
+        mentions: [m.sender]
+        }, {
+        	quoted: m
+        })
+        }
+        break
+        
+        case 'bingimg':{
+        	if (!args[0]) return reply(`Input Text Yang Ingin Di Buatkan\n\nExample : ${prefix + command} Buatkan saya logo 3d dengan bertuliskan JER OFC`)
+        await loading();
+        try {
+        let url = `https://api.betabotz.eu.org/api/search/bing-img?text=${args[0]}&apikey=${btz}`
+        let response = await axios(url)
+        	for (let i = 0; i < 4; i++) {
+        	let buffer = response.data.result[i]
+        	beta.sendFile(m.chat, buffer, null, 'SUCCES : RESULT FROM api.betabotz.eu.org', m)
+        }
+        } catch (e) {
+        	console.log(e)
+        }
+        }
+        break
+        
         case 'ai':
         case 'openai':
         case 'chatgpt':
@@ -914,7 +944,29 @@ switch (command) {
         }
         break
         
-        // Download
+        // Download © JERO BAIK
+        case 'download':
+        case 'down':
+        case 'dl':
+        {
+        	if (!args[0]) return reply(`Masukan Url Dari, tiktok, youtube, ig, twiter, facebook, likee, snackvideo, dll\n\nexample : ${prefix + command} https://vt.tiktok.com/ZSYS43UoK/`)
+        await loading();
+        try {
+        	let apii = await fetch(`https://api.betabotz.eu.org/api/download/allin?url=${args[0]}&apikey=${btz}`)
+        let betaku = await apii.json();
+        let response = betaku.result.medias.map(({url}) => url);
+        const jumlahTotal = response.length;
+        if (jumlahTotal > 0) {
+       	for (let i = 0; i < jumlahTotal; i++) {
+        	beta.sendFile(m.chat, response[i], null, 'SUCCES : RESULT FROM api.betabotz.eu.org', m)
+        }
+        }
+        } catch (e) {
+        	console.log(e)
+        reply(`TERJADI KESALAHAN`)
+        }
+        }
+        break
         case 'capcut':
         {
         	if (!args[0]) return reply(`Input Parameter Url Dari ${command}\n\nExample : ${prefix + command} Url`)
@@ -2260,13 +2312,13 @@ switch (command) {
         txt+=`> ARAB : ${res.arab}\n`
         txt+=`> RUMI : ${res.rumi}\n`
         txt+=`> LATIN : ${res.latin}\n`
+        }
         beta.sendMessage(m.chat, {
         text: txt,
         mentions: [m.sender]
         }, {
         	quoted: m
         })
-        }
         }
         
         break
