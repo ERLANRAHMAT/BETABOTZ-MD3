@@ -37,6 +37,12 @@ const ms = toMs = require('ms');
 const fetch = require('node-fetch')
 
 const {
+	exec,
+	spawn,
+	execSync
+} = require("child_process")
+
+const {
 	makeid
 } = require('./lib/myfunc')
 
@@ -65,9 +71,9 @@ module.exports = beta = async (beta, m, chatUpdate, store, antilink, antiwame, a
     try {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') && m.message.buttonsResponseMessage.selectedButtonId ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') && m.message.listResponseMessage.singleSelectReply.selectedRowId ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') && m.message.templateButtonReplyMessage.selectedId ? m.message.templateButtonReplyMessage.selectedId : (m.mtype == 'interactiveResponseMessage') && JSON.parse(m.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson).id ? JSON.parse(m.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson).id : (m.mtype == 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ""
         var budy = (typeof m.text == 'string' ? m.text : '')
-        var prefix = prefa ? /^[Â°â€¢Ï€Ã·Ã—Â¶âˆ†Â£Â¢â‚¬Â¥Â®â„¢+âœ“_=|~!?@#$%^&.Â©^]/gi.test(body) ? body.match(/^[Â°â€¢Ï€Ã·Ã—Â¶âˆ†Â£Â¢â‚¬Â¥Â®â„¢+âœ“_=|~!?@#$%^&.Â©^]/gi)[0] : "" : prefa ?? global.prefix
-        const isCmd = body.startsWith(prefix)
-        const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
+        const isCmd = /^[ï¿½ï¿½ï¿½×¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_=|~!?#/$%^&.+-,\\\ï¿½^]/.test(body)
+        const prefix = isCmd ? budy[0] : ''
+        const command = isCmd ? body.slice(1).trim().split(' ').shift().toLowerCase() : ''
         const args = body.trim().split(/ +/).slice(1)
         const pushname = m.pushName || "No Name"
         const botNumber = await beta.decodeJid(beta.user.id)
@@ -102,7 +108,10 @@ module.exports = beta = async (beta, m, chatUpdate, store, antilink, antiwame, a
         
         function parseMention(text = '') {
         	return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net')
-        }        
+        }
+        
+        if (m.isBaileys) return
+        
         if (m.message) {
         	console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> From'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> In'), chalk.green(m.isGroup ? pushname : 'Chat Pribadi', m.chat))
        }	                
@@ -247,7 +256,7 @@ module.exports = beta = async (beta, m, chatUpdate, store, antilink, antiwame, a
         beta.sendTextWithMentions(m.chat, `@${m.sender.split('@')[0]} telah kembali dari afk\n\n*Reason :* ${getReason}\n*Selama :* ${heheh.hours} jam ${heheh.minutes} menit ${heheh.seconds} detik\n`, m)
         }
         }
-
+     
     async function loading() {
 	reply(`Mohon Tunggu Perintah ${prefix + command} Sedang Di Proses`)
     }
@@ -677,6 +686,20 @@ switch (command) {
                 }
             }
                 break
+                case 'autorespond': {
+        if (!isCreator) return m.reply(global.message.isOwn)
+        if (args[0] === "on") {
+      	if (global.autorespond === true) return m.reply("Udh on")
+        global.autorespond = true
+        reply("Autorespond berhasil diaktifkan")
+        } else if (args[0] === "off") {
+        	if (global.autorespond === false) return m.reply("Udh off")
+        global.autorespond = false
+        reply("Autorespond berhasil dinonaktifkan")
+        } else {
+          m.reply(`${prefix+command} on -- _mengaktifkan_\n${prefix+command} off -- _Menonaktifkan_`)
+ 		}}
+			break
     case 'anticall':
         {
             if (!m.key.fromMe && !isCreator) return reply(global.message.isOwn)
@@ -915,6 +938,15 @@ switch (command) {
         console.log(e);
         reply(global.message.error);
       }
+        }
+        break
+        case 'douyinasupan':
+        case 'asupandouyin': {
+        	await loading();
+        let res = await fetch(`https://api.betabotz.eu.org/api/asupan/douyin?apikey=${btz}`)
+        if (!res.ok) throw await res.text();
+        let mp4 = await res.buffer();
+        beta.sendFile(m.chat, mp4, 'asupandouyin.mp4', `*DONE*`, m)
         }
         break
         
@@ -1349,7 +1381,44 @@ switch (command) {
       })
       }
       break
-      
+      case 'song':
+            case 'ytvid':
+            case 'play':
+            case 'ytplay': {
+                if (!text) return reply(`Example : ${prefix + command} Pesan Terakhir - Speed Up`)
+await loading()
+let yts = require("youtube-yts")
+let search = await yts(`${text}`)
+//let search = searchh.videos[Math.floor(Math.random(), searchh.videos.length)]
+let caption = `*YOUTUBE PLAY*
+
+ID : ${search.all[0].videoId}
+Title : ${search.all[0].title}
+Views : ${search.all[0].views}
+Duration : ${search.all[0].timestamp}
+Channel : ${search.all[0].author.name}
+Channel : ${search.all[0].ago}
+Upload : ${search.all[0].ago}
+URL Video : ${search.videos[0].url}
+Description : ${search.videos[0].description}
+`
+/*beta.sendMessage(from, {
+	image: {
+		url: search.all[0].image
+	},
+	caption: caption,
+	mentions: [m.sender]
+	}, {
+	quoted: m
+})
+*/
+
+beta.sendButton2(m.chat, null, caption, search.all[0].image, [
+    ['MP3', `${prefix}ytmp3 ${search.videos[0].url}`],
+    ['MP4', `${prefix}ytmp4 ${search.videos[0].url}`]
+  ], null, [['URL', `${search.videos[0].url}`]], quoted)
+}
+break
         //Emoji
         case 'stikapple':
         case 'stikkddi':
@@ -1617,59 +1686,57 @@ switch (command) {
 	}
         }
         break
-        
         case 'qc':
-    {
-        let text;
-        if (args.length >= 1) {
-            text = args.slice(0)
-                .join(" ")
-        } else if (m.quoted && m.quoted.text) {
-            text = m.quoted.text
-        } else reply("Input teks atau reply teks yang ingin di jadikan quote!");
-        if (text.length > 100) return reply('Maksimal 100 Teks!')
+        {
+        	if (text > 25) return m.reply(`Contoh :
 
-        let randomColor = ['#ef1a11', '#89cff0', '#660000', '#87a96b', '#e9f6ff', '#ffe7f7', '#ca86b0', '#83a3ee', '#abcc88', '#80bd76', '#6a84bd', '#5d8d7f', '#530101', '#863434', '#013337', '#133700', '#2f3641', '#cc4291', '#7c4848', '#8a496b', '#722f37', '#0fc163', '#2f3641', '#e7a6cb', '#64c987', '#e6e6fa', '#ffa500'];
+1. Kirim perintah ${prefix + command} *teks*
+	 Contoh : ${prefix + command} LU KONTOL
 
-        const apiColor = randomColor[Math.floor(Math.random() * randomColor.length)];
-
-        let pp = await beta.profilePictureUrl(m.sender, 'image')
-            .
-        catch (_ => 'https://telegra.ph/file/320b066dc81928b782c7b.png')
-
-        const obj = {
+Maksimal 25 karakter`)
+let teks = m.quoted ? quoted.text : text
+ try {
+   try {
+                    pic = await beta.profilePictureUrl(m.sender, 'image')
+                } catch {
+                    pic = 'https://telegra.ph/file/c3f3d2c2548cbefef1604.jpg'
+                }
+         const obj = {
             "type": "quote",
             "format": "png",
-            "backgroundColor": apiColor,
+            "backgroundColor": "#FFFFFF",
             "width": 512,
             "height": 768,
             "scale": 2,
             "messages": [{
-                "entities": [],
-                "avatar": true,
-                "from": {
-                    "id": 1,
-                    "name": m.name,
-                    "photo": {
-                        "url": pp
-                    }
-                },
-                "text": text,
-                "replyMessage": {}
+               "entities": [],
+               "avatar": true,
+               "from": {
+                  "id": 1,
+                  "name": pushname ,
+                  "photo": {
+                     "url": pic
+                  }
+               },
+               "text": teks,
+               "replyMessage": {}
             }]
-        }
-        const json = await axios.post('https://qc.botcahx.eu.org/generate', obj, {
+         }
+         const json = await axios.post('https://bot.lyo.su/quote/generate', obj, {
             headers: {
-                'Content-Type': 'application/json'
+               'Content-Type': 'application/json'
             }
-        })
-        const buffer = Buffer.from(json.data.result.image, 'base64')
-        await beta.sendImageAsSticker(m.chat, buffer, m, {
-        packname: global.packname,
-        author: global.author
-        })
-    }
-    break
+         })
+ const buffer = Buffer.from(json.data.result.image, 'base64') 
+beta.sendImageAsSticker(m.chat, buffer, m, {
+                  packname: global.packname , author: global.author
+               })    //m.reply(util.format(json.data.result.image))
+      } catch (e) {
+         console.log(e)
+         reply(`${e}\n\nServer sedang eror, coba lagi tahun depan`)
+      }
+      }
+      break
     
     //Nsfw
     case 'gay':
@@ -2035,6 +2102,27 @@ switch (command) {
            }
            }
            break
+           case 'lyrics':
+           case 'lirik':{
+           	if (!args[0]) return reply(`Input Pencarian\n\nExample : ${prefix + command} Pesan Terakhir`)
+           await loading();
+           let api = `https://api.betabotz.eu.org/api/search/lirik?lirik=${args[0]}&apikey=${btz}`
+           let response = await axios(api);
+           let txt = ''
+           txt+= `*[ LIRIK LAGU ]*\n\n`
+           txt+= `> JUDUL : ${response.data.result.title}\n`
+           txt+= `> ARTIST : ${response.data.result.artist}\n\n`
+           txt+= `> LIRIK : ${response.data.result.lyrics}\n\n> RESULT FROM : api.betabotz.eu.org`
+           beta.sendMessage(m.chat, {
+           image: {
+           	url: response.data.result.image
+           },
+           caption: txt
+           }, {
+           	quoted: m
+           })
+           }
+           break
            
            // STALK
            case 'ytstalk':
@@ -2230,6 +2318,26 @@ switch (command) {
         	quoted: m
         })
         }
+        break
+        case 'recolor':
+        {
+        	if (!quoted) return reply(`Fotonya Mana?`)
+        if (!/image/.test(mime)) return reply(`Send/Reply Foto Dengan Caption ${prefix + command}`)
+        let media = await quoted.download()
+        let img = await uploadImage(media)
+        await loading();
+        let api = `https://api.betabotz.eu.org/api/tools/recolor?url=${img}&apikey=${btz}`
+        let response = await axios(api);
+        let buffer = response.data.result;
+        beta.sendMessage(m.chat, {
+        	image: {
+        	    url: buffer
+             },
+             caption: 'SUCCES : RESULT FROM api.betabotz.eu.org'
+         }, {
+         	quoted: m
+         })
+         }
         break
         
         // TOOLS
@@ -2796,6 +2904,11 @@ const { translate } = require("@vitalets/google-translate-api");
             }, { quoted: m });
         }
         break;
+                case 'simi':
+                let url = `https://api.betabotz.eu.org/api/search/simisimi?query=${command}&apikey=${btz}`
+                let response = await axios(url)
+                m.reply(response.data.result)
+                break
                 
             default: if (budy.startsWith('>')) {
     if (!isCreator) return reply(global.message.isOwn)
@@ -2809,6 +2922,42 @@ const { translate } = require("@vitalets/google-translate-api");
     }
 }
 }
+
+if (budy.startsWith('=> ')) {
+                    if (!m.key.fromMe && !isCreator) return
+
+                    function Return(sul) {
+                        sat = JSON.stringify(sul, null, 2)
+                        bang = util.format(sat)
+                        if (sat == undefined) {
+                            bang = util.format(sul)
+                        }
+                        return reply(bang)
+                    }
+                    try {
+                        reply(util.format(eval(`(async () => { return ${budy.slice(3)} })()`)))
+                    } catch (e) {
+                        reply(util.format(e))
+                    }
+                }
+                
+                if (budy.startsWith('< ')) {
+                    if (!m.key.fromMe && !isCreator) return
+                    try {
+                        return reply(JSON.stringify(eval(`${args.join(' ')}`), null, '\t'))
+                    } catch (e) {
+                        reply(util.format(e))
+                    }
+                }
+
+                if (budy.startsWith('$ ')) {
+                    if (!m.key.fromMe && !isCreator) return
+                    mengtermuk = budy.slice(2)
+                    exec(mengtermuk, (err, stdout) => {
+                        if (err) return reply(err)
+                        if (stdout) return reply(`*${namaowner}*\nEXEC: ${mengtermuk}\n\n${stdout}`)
+                })
+        }
 
 // CEK BOT ACTIVE OR NO
 if ((budy) && ["bot", "Bot"].includes(budy) && !isCmd && !m.key.fromMe) {
