@@ -142,6 +142,7 @@ global.listcecan = (prefix) =>{
 > • ${prefix}ryujin
 > • ${prefix}thailand
 > • ${prefix}vietnam
+> • ${prefix}asupandouyin
 `
 }
 
@@ -156,6 +157,7 @@ global.listdownload = (prefix) =>{
 > • ${prefix}douyinimg
 > • ${prefix}gdrive
 > • ${prefix}spotify
+> • ${prefix}play
 > • ${prefix}ytmp4
 > • ${prefix}ytmp3
 > • ${prefix}fbvid
@@ -313,6 +315,7 @@ global.listsearch = (prefix) =>{
 	return `
 > • ${prefix}jarak
 > • ${prefix}tiktoksearch
+> • ${prefix}lirik
 `
 }
 
@@ -337,6 +340,7 @@ global.listtools = (prefix) =>{
 > • ${prefix}removebg
 > • ${prefix}tinyurl
 > • ${prefix}translate
+> • ${prefix}recolor
 `
 
 }
