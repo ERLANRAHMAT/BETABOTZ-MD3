@@ -1381,6 +1381,38 @@ switch (command) {
       })
       }
       break
+      case 'xnxxdl':{
+      	if (!args[0]) return reply(`Input Parameter Url Dari ${command}\n\nExample : ${prefix + command} Url`)
+      await loading();
+      let urls = `https://api.betabotz.eu.org/api/download/xnxxdl?url=${args[0]}&apikey=${btz}`
+      let response = await axios(urls);
+      let data = response.data.result;
+      let txt = '*[ XNXX DL ]*\n\n'
+      txt+=`*TITLE :* ${data.title}\n`
+      txt+=`*QUALITY :* ${data.quality}\n`
+      txt+=`*VIEWS :* ${data.views}\n\n`
+      txt+='> VIDEO SEDANG DI KIRIM'
+      beta.sendMessage(m.chat, {
+      image: {
+      	url: data.thumb
+     },
+     caption: txt,
+     mentions: [m.sender]
+     }, {
+     	quoted: m
+     })
+     
+     await beta.sendMessage(m.chat, {
+     video: {
+     	url: data.url
+     },
+     caption: 'SUCCESS',
+     mentions: [m.sender]
+     }, {
+     	quoted: m
+     })
+     }
+     break
       case 'song':
             case 'ytvid':
             case 'play':
@@ -1419,6 +1451,7 @@ beta.sendButton2(m.chat, null, caption, search.all[0].image, [
   ], null, [['URL', `${search.videos[0].url}`]], quoted)
 }
 break
+
         //Emoji
         case 'stikapple':
         case 'stikkddi':
@@ -2118,6 +2151,34 @@ beta.sendImageAsSticker(m.chat, buffer, m, {
            	url: response.data.result.image
            },
            caption: txt
+           }, {
+           	quoted: m
+           })
+           }
+           break
+           case 'xnxxsearch':{
+           	if (!args[0]) return reply(`Tobat Woi\n\nexample : ${prefix + command} Cara ngentod yang brutal`)
+           await loading();
+           let urls = await `https://api.betabotz.eu.org/api/search/xnxx?query=${args[0]}&apikey=${btz}`
+           let api = await fetch(urls);
+           let betaku = await api.json();
+           let data = betaku.result;
+           let txt = ''
+           data.forEach(function (i) {
+           txt+= '\n\n*[ XNXX SEARCH ]*\n\n'
+           txt+= `*TITLE :* ${i.title}\n`
+           txt+= `*VIEWS :* ${i.views}\n`
+           txt+= `*QUALITY :* ${i.quality}\n`
+           txt+= `*DURASI :* ${i.duration}\n`
+           txt+= `*URL :* ${i.link}`
+           .trim()
+           })
+           beta.sendMessage(m.chat, {
+           image: {
+           	url: data[0].thumb
+           },
+           caption: txt,
+           mentions: [m.sender]
            }, {
            	quoted: m
            })
