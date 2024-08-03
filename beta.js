@@ -1197,14 +1197,14 @@ switch (command) {
         } = betaku.result
         
         const {
-        result,
+        mp4,
         size,
         quality
-        } = betaku.result.mp4
+        } = betaku.result
         
         beta.sendMessage(m.chat, {
         video: {
-        	url: result
+        	url: mp4
         },
         caption: 'SUCCES : RESULT FROM api.betabotz.eu.org'
         }, {
@@ -1228,13 +1228,13 @@ switch (command) {
         } = betaku.result
         
         const {
-        result,
+        mp3,
         size
-        } = betaku.result.mp3
+        } = betaku.result
         
         beta.sendMessage(m.chat, {
         audio: {
-        	url: result
+        	url: mp3
         },
         caption: 'SUCCES : RESULT FROM api.betabotz.eu.org'
         }, {
@@ -1250,17 +1250,9 @@ switch (command) {
         await loading();
         let api = await fetch(`https://api.betabotz.eu.org/api/download/fbdown?url=${args[0]}&apikey=${btz}`)
         let betaku = await api.json();
-        
-        const {
-        title,
-        thumbnail,
-        Normal_video,
-        HD
-        } = betaku.result
-        
         beta.sendMessage(m.chat, {
         video: {
-        	url: Normal_video
+        	url: betaku.result[1]._url
         },
         caption: 'SUCCES : RESULT FROM api.betabotz.eu.org'
         }, {
