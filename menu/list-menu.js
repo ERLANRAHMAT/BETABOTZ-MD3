@@ -176,6 +176,7 @@ global.listdownload = (prefix) =>{
 > • !soundcloud
 > • !download
 > • !dl
+> • !xnxxdl
 `
 }
 
@@ -317,6 +318,7 @@ global.listsearch = (prefix) =>{
 > • !jarak
 > • !tiktoksearch
 > • !lirik
+> • !xnxxsearch
 `
 }
 
