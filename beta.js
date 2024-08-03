@@ -1236,7 +1236,8 @@ switch (command) {
         audio: {
         	url: mp3
         },
-        caption: 'SUCCES : RESULT FROM api.betabotz.eu.org'
+        mimetype: "audio/mpeg",
+        ptt: true
         }, {
         	quoted: m
         })
