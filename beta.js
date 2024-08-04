@@ -2469,18 +2469,15 @@ beta.sendImageAsSticker(m.chat, buffer, m, {
         await loading();
         let url = `https://api.betabotz.eu.org/api/muslim/surah?no=${args[0]}&apikey=${btz}`
         let response = await axios(url)
-        	for (let res in response.data.result) {
+        let data = response.data.result;
         let txt = ''
-        txt+=`> ARAB : ${res.arab}\n`
-        txt+=`> RUMI : ${res.rumi}\n`
-        txt+=`> LATIN : ${res.latin}\n`
-        }
-        beta.sendMessage(m.chat, {
-        text: txt,
-        mentions: [m.sender]
-        }, {
-        	quoted: m
+        data.forEach(function (res) {
+        txt+=`ARAB : ${res.arab}\n`
+        txt+=`RUMI : ${res.rumi}\n`
+        txt+=`LATIN : ${res.latin}\n\n`
+        txt+=`> = = = = = = = = = =\n\n`
         })
+        reply(txt)
         }
         
         break
