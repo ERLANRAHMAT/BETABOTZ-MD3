@@ -2533,22 +2533,22 @@ const { translate } = require("@vitalets/google-translate-api");
             {
                     title: "「 × 」Menu",
                     description: "Menampilkan Menu Yang Tersedia ",
-                    id: `${prefix} menu`
+                    id: `${prefix}menu`
                 },
                 {
                     title: "「 × 」Group Menu",
                     description: "Menampilkan Semua Fitur Group Menu",
-                    id: `${prefix} groupmenu`
+                    id: `${prefix}groupmenu`
                 },
                 {
                     title: "「 × 」Info Menu",
                     description: "Menampilkan Semua Fitur Info Menu",
-                    id: `${prefix} infomenu`
+                    id: `${prefix}infomenu`
                 },
                 {
                     title: "「 × 」Owner Menu",
                     description: "Menampilkan Semua Fitur Owner Menu",
-                    id: `${prefix} ownermenu`
+                    id: `${prefix}ownermenu`
                 }
                 
             ]
@@ -2559,67 +2559,67 @@ const { translate } = require("@vitalets/google-translate-api");
                 {
                     title: "「 × 」Menu Ai",
                     description: "Menampilkan Menu Ai",
-                    id: `${prefix} ai-menu`
+                    id: `${prefix}ai-menu`
                 },
                 {
                     title: "「 × 」Menu Anime",
                     description: "Menampilkan Menu Asupan",
-                    id: `${prefix} anime-menu`
+                    id: `${prefix}anime-menu`
                 },
                 {
                     title: "「 × 」Menu Asupan",
                     description: "Menampilkan Menu Asupan",
-                    id: `${prefix} asupan-menu`
+                    id: `${prefix}asupan-menu`
                 },
                 {
                     title: "「 × 」Menu Cecan",
                     description: "Menampilkan Menu Cecan",
-                    id: `${prefix} cecan-menu`
+                    id: `${prefix}cecan-menu`
                 },
                 {
                     title: "「 × 」Menu Download",
                     description: "Menampilkan Menu Download",
-                    id: `${prefix} download-menu`
+                    id: `${prefix}download-menu`
                 },
                 {
                     title: "「 × 」Menu Emoji",
                     description: "Menampilkan Menu Emoji To Sticker",
-                    id: `${prefix} emoji-menu`
+                    id: `${prefix}emoji-menu`
                 },
                 {
                     title: "「 × 」Menu Ephoto",
                     description: "Menampilkan Menu Image Creator Ephoto",
-                    id: `${prefix} ephoto-menu`
+                    id: `${prefix}ephoto-menu`
                 },
                 {
                     title: "「 × 」Menu Maker",
                     description: "Menampilkan Menu Maker",
-                    id: `${prefix} maker-menu`
+                    id: `${prefix}maker-menu`
                 },
                 {
                     title: "「 × 」Menu Nsfw",
                     description: "Menampilkan Menu Nsfw Images",
-                    id: `${prefix} nsfw-menu`
+                    id: `${prefix}nsfw-menu`
                 },
                 {
                     title: "「 × 」Menu Photooxy",
                     description: "Menampilkan Menu Image Creator Photooxy",
-                    id: `${prefix} photooxy-menu`
+                    id: `${prefix}photooxy-menu`
                 },
                 {
                     title: "「 × 」Menu Search",
                     description: "Menampilkan Menu Search",
-                    id: `${prefix} search-menu`
+                    id: `${prefix}search-menu`
                 },
                 {
                     title: "「 × 」Menu Stalk",
                     description: "Menampilkan Menu Stalk",
-                    id: `${prefix} stalk-menu`
+                    id: `${prefix}stalk-menu`
                 },
                 {
                     title: "「 × 」Menu Tools",
                     description: "Menampilkan Menu Tools",
-                    id: `${prefix} tools-menu`
+                    id: `${prefix}tools-menu`
                 }
                 ]
         })
