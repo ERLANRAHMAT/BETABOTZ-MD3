@@ -110,8 +110,6 @@ module.exports = beta = async (beta, m, chatUpdate, store, antilink, antiwame, a
         	return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net')
         }
         
-        if (m.isBaileys) return
-        
         if (m.message) {
         	console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> From'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> In'), chalk.green(m.isGroup ? pushname : 'Chat Pribadi', m.chat))
        }	                
@@ -571,6 +569,15 @@ switch (command) {
                     reply(`Kirim perintah ${prefix + command} on/off\n\nContoh: ${prefix + command} on`)
                 }
             }
+                break
+                case 'getcase':{
+                	if (!isCreator) return reply('Khusus Owner')
+                if (!q) return reply(`Masukan Fitur Yang Ingin di Ambil\n\nExample: ${prefix + command} tiktok`)
+                const getCase = (cases) => {
+                	return "case  "+`'${cases}'`+fs.readFileSync("./beta.js").toString().split('case \''+cases+'\'')[1].split("break")[0]+"break"
+                }
+                reply(`${getCase(q)}`)
+                }
                 break
                 
         //Info Menu
@@ -1203,10 +1210,11 @@ switch (command) {
         } = betaku.result
         
         beta.sendMessage(m.chat, {
-        video: {
+        document: {
         	url: mp4
         },
-        caption: 'SUCCES : RESULT FROM api.betabotz.eu.org'
+        caption: 'SUCCES : RESULT FROM api.betabotz.eu.org',
+        mimetype: 'video/mp4'
         }, {
         	quoted: m
         })
