@@ -12,7 +12,7 @@
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
     "@vitalets/google-translate-api": "^9.2.0",
-    "@whiskeysockets/baileys": "github:whiskeysockets/Baileys",
+    "@whiskeysockets/baileys": "npm:@whiskeysockets/baileys",
     "awesome-phonenumber": "^2.64.0",
     "axios": "^0.24.0",
     "chalk": "^4.1.2",
