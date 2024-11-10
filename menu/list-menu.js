@@ -16,335 +16,336 @@ global.menunya = (run, mode, jam, tanggal, owner, prefix) =>{
 ╰❒ 
 
 ╭─❒ 「 *GROUP* 」
-│> !add
-│> !antilink
-│> !antilink2
-│> !antiwame
-│> !antiwame2
-│> !demote
-│> !group
-│> !hidetag
-│> !kick
-│> !linkgc
-│> !promote
-│> !revoke
-│> !sendlinkgc
-│> !setdesk
-│> !setnamegc
-│> !tagall
+│> ${prefix}add
+│> ${prefix}antilink
+│> ${prefix}antilink2
+│> ${prefix}antiwame
+│> ${prefix}antiwame2
+│> ${prefix}demote
+│> ${prefix}group
+│> ${prefix}hidetag
+│> ${prefix}kick
+│> ${prefix}linkgc
+│> ${prefix}promote
+│> ${prefix}revoke
+│> ${prefix}sendlinkgc
+│> ${prefix}setdesk
+│> ${prefix}setnamegc
+│> ${prefix}tagall
 │
 ╰❒ 
 
 ╭─❒ 「 *INFO* 」
 │
-│> !grupbot
-│> !owner
-│> !runtime
-│> !sc
-│> !tqto
+│> ${prefix}grupbot
+│> ${prefix}owner
+│> ${prefix}runtime
+│> ${prefix}sc
+│> ${prefix}tqto
 │
 ╰❒ 
 
 ╭─❒ 「 *OWNER* 」
-│> !anticall
-│> !delete
-│> !join
-│> !out 
-│> !public
-│> !self
+│> ${prefix}anticall
+│> ${prefix}delete
+│> ${prefix}join
+│> ${prefix}out 
+│> ${prefix}public
+│> ${prefix}self
 │
 ╰❒ 
 
 ╭─❒ 「 *AI* 」
 │
-│> !ai
-│> !ailogic
-│> !aiimg
-│> !bard
-│> !bardimg
-│> !bingchat
-│> !bingimg
-│> !simi
+│> ${prefix}ai
+│> ${prefix}ailogic
+│> ${prefix}aiimg
+│> ${prefix}bard
+│> ${prefix}bardimg
+│> ${prefix}bingchat
+│> ${prefix}bingimg
+│> ${prefix}simi
 │
 ╰❒ 
 
 ╭─❒ 「 *ANIME* 」
 │
-│> !akira
-│> !akiyama
-│> !ana
-│> !asuna
-│> !ayuzawa
-│> !boruto
-│> !chiho
-│> !chitoge
-│> !deidara
-│> !doraemon
-│> !eba
-│> !elaina
-│> !emilia
-│> !erza
-│> !gremory
-│> !hestia
-│> !hinata
-│> !inori
-│> !isuzu
-│> !itachi
-│> !itori
-│> !kaga
-│> !kagura
-│> !kaneki
-│> !kaori
-│> !kotori
-│> !kurumi
-│> !loli
-│> !madara
-│> !megumin
-│> !miku
-│> !mikasa
-│> !minato
-│> !naruto
-│> !nezuko
-│> !rize
-│> !sagiri
-│> !sakura
-│> !sasuke
-│> !shina
-│> !shinka
-│> !shinomiya
-│> !shizuka
-│> !shota
-│> !tejina
-│> !toukachan
-│> !tsunade
-│> !umaru
-│> !waifu
-│> !yotsuba
-│> !yumeko
-│> !yuri
+│> ${prefix}akira
+│> ${prefix}akiyama
+│> ${prefix}ana
+│> ${prefix}asuna
+│> ${prefix}ayuzawa
+│> ${prefix}boruto
+│> ${prefix}chiho
+│> ${prefix}chitoge
+│> ${prefix}deidara
+│> ${prefix}doraemon
+│> ${prefix}eba
+│> ${prefix}elaina
+│> ${prefix}emilia
+│> ${prefix}erza
+│> ${prefix}gremory
+│> ${prefix}hestia
+│> ${prefix}hinata
+│> ${prefix}inori
+│> ${prefix}isuzu
+│> ${prefix}itachi
+│> ${prefix}itori
+│> ${prefix}kaga
+│> ${prefix}kagura
+│> ${prefix}kaneki
+│> ${prefix}kaori
+│> ${prefix}kotori
+│> ${prefix}kurumi
+│> ${prefix}loli
+│> ${prefix}madara
+│> ${prefix}megumin
+│> ${prefix}miku
+│> ${prefix}mikasa
+│> ${prefix}minato
+│> ${prefix}naruto
+│> ${prefix}nezuko
+│> ${prefix}rize
+│> ${prefix}sagiri
+│> ${prefix}sakura
+│> ${prefix}sasuke
+│> ${prefix}shina
+│> ${prefix}shinka
+│> ${prefix}shinomiya
+│> ${prefix}shizuka
+│> ${prefix}shota
+│> ${prefix}tejina
+│> ${prefix}toukachan
+│> ${prefix}tsunade
+│> ${prefix}umaru
+│> ${prefix}waifu
+│> ${prefix}yotsuba
+│> ${prefix}yumeko
+│> ${prefix}yuri
 │
 ╰❒ 
 
 ╭─❒ 「 *ASUPAN* 」
 │
-│> !asupan
+│> ${prefix}asupan
 │
 ╰❒ 
 
 ╭─❒ 「 *CECAN* 」
 │
-│> !china
-│> !hijaber
-│> !indonesia
-│> !jeni
-│> !japan
-│> !jiso
-│> !justinaxie
-│> !korea
-│> !malaysia
-│> !rose
-│> !ryujin
-│> !thailand
-│> !vietnam
-│> !asupandouyin
+│> ${prefix}china
+│> ${prefix}hijaber
+│> ${prefix}indonesia
+│> ${prefix}jeni
+│> ${prefix}japan
+│> ${prefix}jiso
+│> ${prefix}justinaxie
+│> ${prefix}korea
+│> ${prefix}malaysia
+│> ${prefix}rose
+│> ${prefix}ryujin
+│> ${prefix}thailand
+│> ${prefix}vietnam
+│> ${prefix}asupandouyin
 │
 ╰❒ 
 
 ╭─❒ 「 *DOWNLOAD* 」
-│> !capcut
-│> !pindl
-│> !pinterestdl
-│> !threads
-│> !douyin
-│> !douyinslide
-│> !douyinimg
-│> !gdrive
-│> !spotify
-│> !play
-│> !ytmp4
-│> !ytmp3
-│> !fbvid
-│> !fbvideo
-│> !facebook
-│> !fb
-│> !tt
-│> !tiktok
-│> !ig
-│> !igvideo
-│> !igreels
-│> !igstory
-│> !instagram
-│> !mediafire
-│> !soundcloud
-│> !download
-│> !dl
-│> !xnxxdl
+│> ${prefix}capcut
+│> ${prefix}pindl
+│> ${prefix}pinterestdl
+│> ${prefix}threads
+│> ${prefix}douyin
+│> ${prefix}douyinslide
+│> ${prefix}douyinimg
+│> ${prefix}gdrive
+│> ${prefix}spotify
+│> ${prefix}play
+│> ${prefix}ytmp4
+│> ${prefix}ytmp3
+│> ${prefix}fbvid
+│> ${prefix}fbvideo
+│> ${prefix}facebook
+│> ${prefix}fb
+│> ${prefix}tt
+│> ${prefix}tiktok
+│> ${prefix}ig
+│> ${prefix}igvideo
+│> ${prefix}igreels
+│> ${prefix}igstory
+│> ${prefix}instagram
+│> ${prefix}mediafire
+│> ${prefix}soundcloud
+│> ${prefix}download
+│> ${prefix}dl
+│> ${prefix}xnxxdl
 │
 ╰❒ 
 
 ╭─❒ 「 *EMOJI* 」
 │
-│> !stikapple
-│> !stikkddi
-│> !stikgoogle
-│> !stikdocomo
-│> !stiksoftbank
-│> !stikhtc
-│> !stikmozilla
-│> !stiklg
-│> !stikopenmoji
-│> !stikemojipedia
-│> !stikjoypixels
-│> !stikfacebook
-│> !stikskype
-│> !stikwhatsapp
-│> !stiktwitter
-│> !stiksamsung
-│> !stikmicrosoft
+│> ${prefix}stikapple
+│> ${prefix}stikkddi
+│> ${prefix}stikgoogle
+│> ${prefix}stikdocomo
+│> ${prefix}stiksoftbank
+│> ${prefix}stikhtc
+│> ${prefix}stikmozilla
+│> ${prefix}stiklg
+│> ${prefix}stikopenmoji
+│> ${prefix}stikemojipedia
+│> ${prefix}stikjoypixels
+│> ${prefix}stikfacebook
+│> ${prefix}stikskype
+│> ${prefix}stikwhatsapp
+│> ${prefix}stiktwitter
+│> ${prefix}stiksamsung
+│> ${prefix}stikmicrosoft
 │
 ╰❒ 
 
 ╭─❒ 「 *EPHOTO* 」
 │
-│> !ytgold
-│> !ytsilver
-│> !iggold
-│> !igsilver
-│> !fbgold
-│> !fbsilver
-│> !twtgold
-│> !twtsilver
-│> !televisi
-│> !glasses
-│> !blackpink
-│> !blackpink2
-│> !coverpubg
-│> !greenbrush
-│> !eraser
-│> !dragonfire
-│> !incandescent
-│> !typography
-│> !typography2
-│> !cloth
-│> !grafitti
-│> !galaxy
-│> !blueneon
-│> !nightstars
-│> !cloud
-│> !papercut
-│> !horor
-│> !sunlight
-│> !pig
+│> ${prefix}ytgold
+│> ${prefix}ytsilver
+│> ${prefix}iggold
+│> ${prefix}igsilver
+│> ${prefix}fbgold
+│> ${prefix}fbsilver
+│> ${prefix}twtgold
+│> ${prefix}twtsilver
+│> ${prefix}televisi
+│> ${prefix}glasses
+│> ${prefix}blackpink
+│> ${prefix}blackpink2
+│> ${prefix}coverpubg
+│> ${prefix}greenbrush
+│> ${prefix}eraser
+│> ${prefix}dragonfire
+│> ${prefix}incandescent
+│> ${prefix}typography
+│> ${prefix}typography2
+│> ${prefix}cloth
+│> ${prefix}grafitti
+│> ${prefix}galaxy
+│> ${prefix}blueneon
+│> ${prefix}nightstars
+│> ${prefix}cloud
+│> ${prefix}papercut
+│> ${prefix}horor
+│> ${prefix}sunlight
+│> ${prefix}pig
 │
 ╰❒ 
 
 ╭─❒ 「 *MAKER* 」
 │
-│> !carbon
-│> !ttp
-│> !sticker
-│> !s
-│> !stickergif
-│> !sgif
-│> !smeme
-│> !stickmeme
-│> !stikmeme
-│> !stickermeme
-│> !stikermeme
-│> !toanime
-│> !jadianime
-│> !tozombie
-│> !jadizombie
-│> !togta
-│> !jadigta
-│> !qc
+│> ${prefix}carbon
+│> ${prefix}ttp
+│> ${prefix}sticker
+│> ${prefix}s
+│> ${prefix}stickergif
+│> ${prefix}sgif
+│> ${prefix}smeme
+│> ${prefix}stickmeme
+│> ${prefix}stikmeme
+│> ${prefix}stickermeme
+│> ${prefix}stikermeme
+│> ${prefix}toanime
+│> ${prefix}jadianime
+│> ${prefix}tozombie
+│> ${prefix}jadizombie
+│> ${prefix}togta
+│> ${prefix}jadigta
+│> ${prefix}qc
 │
 ╰❒ 
 
 ╭─❒ 「 *NSFW* 」
-│> !gay
-│> !ahegao
-│> !ass
-│> !bdsm
-│> !blowjob
-│> !cuckold
-│> !cum
-│> !ero
-│> !femdom
-│> !foot
-│> !gangbang
-│> !glasses
-│> !hentai
-│> !gifs
-│> !jahy
-│> !manga
-│> !masturbation
-│> !neko
-│> !neko2
-│> !orgy
-│> !panties
-│> !pussy
-│> !tentacles
-│> !yuri
-│> !thighs
-│> !zettai
+│> ${prefix}gay
+│> ${prefix}ahegao
+│> ${prefix}ass
+│> ${prefix}bdsm
+│> ${prefix}blowjob
+│> ${prefix}cuckold
+│> ${prefix}cum
+│> ${prefix}ero
+│> ${prefix}femdom
+│> ${prefix}foot
+│> ${prefix}gangbang
+│> ${prefix}glasses
+│> ${prefix}hentai
+│> ${prefix}gifs
+│> ${prefix}jahy
+│> ${prefix}manga
+│> ${prefix}masturbation
+│> ${prefix}neko
+│> ${prefix}neko2
+│> ${prefix}orgy
+│> ${prefix}panties
+│> ${prefix}pussy
+│> ${prefix}tentacles
+│> ${prefix}yuri
+│> ${prefix}thighs
+│> ${prefix}zettai
 │
 ╰❒ 
 
 ╭─❒ 「 *PHOTOXY* 」
 │
-│> !bevel-text
-│> !luxury
-│> !flaming
-│> !underwater
-│> !shadow-sky
-│> !wolf-metal
-│> !metallic
-│> !metallic2
-│> !burn-paper
-│> !naruto
-│> !3d-summer
-│> !under-grass
-│> !smoke
-│> !flower-typography
-│> !picture-of-love
-│> !hello-kitty
-│> !coffe-cup
-│> !butterfly
-│> !night-sky
-│> !carved-wood
-│> !sweet-candy
+│> ${prefix}bevel-text
+│> ${prefix}luxury
+│> ${prefix}flaming
+│> ${prefix}underwater
+│> ${prefix}shadow-sky
+│> ${prefix}wolf-metal
+│> ${prefix}metallic
+│> ${prefix}metallic2
+│> ${prefix}burn-paper
+│> ${prefix}naruto
+│> ${prefix}3d-summer
+│> ${prefix}under-grass
+│> ${prefix}smoke
+│> ${prefix}flower-typography
+│> ${prefix}picture-of-love
+│> ${prefix}hello-kitty
+│> ${prefix}coffe-cup
+│> ${prefix}butterfly
+│> ${prefix}night-sky
+│> ${prefix}carved-wood
+│> ${prefix}sweet-candy
 │
 ╰❒ 
 ╭─❒ 「 *SEARCH* 」
-│> !jarak
-│> !tiktoksearch
-│> !lirik
-│> !xnxxsearch
+│> ${prefix}jarak
+│> ${prefix}tiktoksearch
+│> ${prefix}lirik
+│> ${prefix}xnxxsearch
 │
 ╰❒ 
 
 ╭─❒ 「 *STALKING* 」
-│> !igstalk
-│> !ttstalk
-│> !ytstalk
-│> !ffstalk
-│> !mlstalk
+│> ${prefix}igstalk
+│> ${prefix}ttstalk
+│> ${prefix}ytstalk
+│> ${prefix}ffstalk
+│> ${prefix}mlstalk
 │
 ╰❒ 
 
 ╭─❒ 「 *TOOLS* 」
 │
-│> !hd1
-│> !hd2
-│> !hd3
-│> !gempa
-│> !cekapi
-│> !whatmusic
-│> !removebg
-│> !tinyurl
-│> !translate
-│> !recolor
+│> ${prefix}hd1
+│> ${prefix}hd2
+│> ${prefix}hd3
+│> ${prefix}hd4
+│> ${prefix}gempa
+│> ${prefix}cekapi
+│> ${prefix}whatmusic
+│> ${prefix}removebg
+│> ${prefix}tinyurl
+│> ${prefix}translate
+│> ${prefix}recolor
 │
 ╰❒ 
 `
