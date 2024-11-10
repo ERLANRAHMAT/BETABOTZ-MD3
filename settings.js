@@ -40,10 +40,6 @@ global.prefa = ['', '!', '.', '🐦', '🐤', '🗿'] // GAK USAH UBAH
 global.sewabot = ("SEWA CHAT OWNER") // ISI HARGA SEWA BOT LU
 global.fakelink = "https://api.betabotz.eu.org" // BEBAS ASAL JAN HAPUS
 
-// NOMOR BOT BIAR LGSG MUNCUL
-// KODE PAIRING
-global.pairingNumber = "" // ISI NOMOR BOT LU
-
 // NAME STICKER \\
 global.packname = 'BETABOTZ'
 global.author = 'API'
@@ -51,8 +47,8 @@ global.author = 'API'
 // TRUE OR FALSE \\
 
 global.autoread = true
-global.autorespond = false
-
+global.antispam = true // SARAN GUA TRUE AJA
+global.autodownload = true
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
 	fs.unwatchFile(file)
