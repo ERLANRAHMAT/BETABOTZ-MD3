@@ -151,6 +151,7 @@ global.menunya = (run, mode, jam, tanggal, owner, prefix) =>{
 ╰❒ 
 
 ╭─❒ 「 *DOWNLOAD* 」
+│> ${prefix}terabox
 │> ${prefix}capcut
 │> ${prefix}pindl
 │> ${prefix}pinterestdl
