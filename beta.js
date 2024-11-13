@@ -1013,6 +1013,80 @@ module.exports = beta = async (beta, m, chatUpdate, store, antilink, antiwame, a
                     }
                 }
                 break
+                
+// Nambahin doang ©by PasyaGanz
+
+case 'terabox':
+{
+    if (!args[0]) return reply(`Input Parameter Url Dari ${command}\n\nExample : ${prefix + command} Url`)
+    await loading();
+    
+    try {
+        let api = await fetch(`https://api.betabotz.eu.org/api/download/terabox?url=${args[0]}&apikey=${btz}`)
+        let response = await api.json();
+        
+        if (!response.status || !response.result) {
+            return reply('Gagal mengambil data dari Terabox!')
+        }
+
+        let sortedFiles = response.result.sort((a, b) => 
+            new Date(a.created) - new Date(b.created)
+        );
+
+        let summary = `*TERABOX DOWNLOADER*\n\nDitemukan ${sortedFiles.length} file:\n`;
+        sortedFiles.forEach((file, index) => {
+            const size = parseInt(file.files[0].size);
+            const sizeInMB = (size / (1024 * 1024)).toFixed(2);
+            summary += `\n${index + 1}. ${file.name} (${sizeInMB} MB)`;
+        });
+        
+        await beta.sendMessage(m.chat, { text: summary }, { quoted: m });
+
+        for (let file of sortedFiles) {
+            const fileUrl = file.files[0].url;
+            const fileName = file.name.toLowerCase();
+            
+            if (fileName.endsWith('.mp4')) {
+                await beta.sendMessage(m.chat, {
+                    video: {
+                        url: fileUrl
+                    },
+                    caption: `SUCCES : ${file.name}`
+                }, {
+                    quoted: m
+                });
+            } 
+            else if (fileName.endsWith('.jpg') || fileName.endsWith('.jpeg') || fileName.endsWith('.png')) {
+                await beta.sendMessage(m.chat, {
+                    image: {
+                        url: fileUrl
+                    },
+                    caption: `SUCCES : ${file.name}`
+                }, {
+                    quoted: m
+                });
+            }
+            else {
+                await beta.sendMessage(m.chat, {
+                    document: {
+                        url: fileUrl
+                    },
+                    mimetype: 'application/octet-stream',
+                    fileName: file.name,
+                    caption: `SUCCES : ${file.name}`
+                }, {
+                    quoted: m
+                });
+            }
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        reply('Terjadi kesalahan saat mengunduh file dari Terabox!');
+    }
+}
+break
+
+//===============================================================================================\\
 
             // Download © JERO BAIK
             case 'download':
