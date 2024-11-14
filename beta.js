@@ -2572,7 +2572,16 @@ Maksimal 25 karakter`)
                 })
             }
                 break
-
+                case 'tourl':{
+                	if (!quoted) return reply(`Fotonya Mana?`)
+                if (!/image/.test(mime)) return reply(`Send/Reply Foto Dengan Caption ${prefix + command}`)
+                await loading();
+                let media = await quoted.download();
+                let isMedia = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
+                let img = await (isMedia ? uploadImage : uploadImage)(media)
+                reply(`${img}`)
+                }
+                break
             // INFORMATION 
             case 'gempa': {
                 await loading();
