@@ -34,6 +34,7 @@ const axios = require('axios');
 const moment = require('moment-timezone');
 const ms = toMs = require('ms');
 const fetch = require('node-fetch')
+const { createSticker } = require('wa-sticker-formatter')
 
 const {
     exec,
@@ -1096,6 +1097,112 @@ case 'terabox':
 }
 break
 
+//Yang bAwah Stiker random dari API (©by PasyaGanz)
+
+
+case 'stikamong': {
+    await loading();
+    try {
+        let res = await fetch(`https://api.betabotz.eu.org/api/sticker/among?apikey=${btz}`);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        
+        let buffer = await res.buffer();
+        
+        const stiker = await createSticker(buffer, { 
+            pack: 'Among Sticker', 
+            author: 'BetaBotz' 
+        });
+        
+        await beta.sendMessage(m.chat, { sticker: stiker }, { quoted: m });
+    } catch (error) {
+        m.reply(`Error stikamong: ${error.message}`);
+    }
+}
+break;
+
+case 'stikanime': {
+    await loading();
+    try {
+        let res = await fetch(`https://api.betabotz.eu.org/api/sticker/anime?apikey=${btz}`);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        
+        let buffer = await res.buffer();
+        
+        const stiker = await createSticker(buffer, { 
+            pack: 'Anime Sticker', 
+            author: 'BetaBotz' 
+        });
+        
+        await beta.sendMessage(m.chat, { sticker: stiker }, { quoted: m });
+    } catch (error) {
+        m.reply(`Error stikanime: ${error.message}`);
+    }
+}
+break;
+
+case 'stikbucin': {
+    await loading();
+    try {
+        let res = await fetch(`https://api.betabotz.eu.org/api/sticker/bucin?apikey=${btz}`);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        
+        let buffer = await res.buffer();
+        
+        const stiker = await createSticker(buffer, { 
+            pack: 'Bucin Sticker', 
+            author: 'BetaBotz' 
+        });
+        
+        await beta.sendMessage(m.chat, { sticker: stiker }, { quoted: m });
+    } catch (error) {
+        m.reply(`Error stikbucin: ${error.message}`);
+    }
+}
+break;
+
+case 'stikrabbit': {
+    await loading();
+    try {
+        let res = await fetch(`https://api.betabotz.eu.org/api/sticker/rabbit?apikey=${btz}`);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        
+        let buffer = await res.buffer();
+        
+        const stiker = await createSticker(buffer, { 
+            pack: 'Rabbit Sticker', 
+            author: 'BetaBotz' 
+        });
+        
+        await beta.sendMessage(m.chat, { sticker: stiker }, { quoted: m });
+    } catch (error) {
+        m.reply(`Error stikrabbit: ${error.message}`);
+    }
+}
+break;
+
+case 'stikmanusialidi': {
+    await loading();
+    try {
+        let res = await fetch(`https://api.betabotz.eu.org/api/sticker/manusialidi?apikey=${btz}`);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        
+        let buffer = await res.buffer();
+        
+        const stiker = await createSticker(buffer, { 
+            pack: 'Manusia Lidi Sticker', 
+            author: 'BetaBotz' 
+        });
+        
+        await beta.sendMessage(m.chat, { sticker: stiker }, { quoted: m });
+    } catch (error) {
+        m.reply(`Error stikmanusialidi: ${error.message}`);
+    }
+}
+break;
+
+
+
+//nanti lagi yak mau di tambahin sabar aja
 //===============================================================================================\\
 
             // Download © JERO BAIK
@@ -2428,6 +2535,11 @@ Maksimal 25 karakter`)
                 })
             }
                 break
+                
+             
+                
+                
+              
 
             // TOOLS HD © JERO 🗿
             case 'hd':
