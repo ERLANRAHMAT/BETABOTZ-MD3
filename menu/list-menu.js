@@ -183,6 +183,16 @@ global.menunya = (run, mode, jam, tanggal, owner, prefix) =>{
 │
 ╰❒ 
 
+╭─❒ 「 *RANDOM STICKER* 」
+│
+│> ${prefix}stikmanusialidi
+│> ${prefix}stikrabbit
+│> ${prefix}stikbucin
+│> ${prefix}stikanime
+│> ${prefix}stikamong
+│
+╰❒ 
+
 ╭─❒ 「 *EMOJI* 」
 │
 │> ${prefix}stikapple
