@@ -1200,9 +1200,170 @@ case 'stikmanusialidi': {
 }
 break;
 
-
-
 //nanti lagi yak mau di tambahin sabar aja
+
+//Cerpen By PasyaGanz (PASYA)
+
+case 'cerpenremaja': {
+    await loading();
+    let res = await fetch(`https://api.betabotz.eu.org/api/story/cerpen?type=remaja&apikey=${btz}`)
+    if (!res.ok) throw await res.text();
+    let data = await res.json();
+    let cerpen = data.result;
+    let caption = `📖 *Cerpen Remaja*\n\n` +
+                 `*Judul:* ${cerpen.title}\n` +
+                 `*Penulis:* ${cerpen.author}\n` +
+                 `*Kategori:* ${cerpen.kategori}\n` +
+                 `*Tanggal:* ${cerpen.lolos}\n\n` +
+                 `${cerpen.cerita}`;
+    beta.sendMessage(m.chat, { text: caption }, { quoted: m });
+}
+break
+
+case 'cerpenanak': {
+    await loading();
+    let res = await fetch(`https://api.betabotz.eu.org/api/story/cerpen?type=anak&apikey=${btz}`)
+    if (!res.ok) throw await res.text();
+    let data = await res.json();
+    let cerpen = data.result;
+    let caption = `📖 *Cerpen Anak*\n\n` +
+                 `*Judul:* ${cerpen.title}\n` +
+                 `*Penulis:* ${cerpen.author}\n` +
+                 `*Kategori:* ${cerpen.kategori}\n` +
+                 `*Tanggal:* ${cerpen.lolos}\n\n` +
+                 `${cerpen.cerita}`;
+    beta.sendMessage(m.chat, { text: caption }, { quoted: m });
+}
+break
+
+case 'cerpenmisteri': {
+    await loading();
+    let res = await fetch(`https://api.betabotz.eu.org/api/story/cerpen?type=misteri&apikey=${btz}`)
+    if (!res.ok) throw await res.text();
+    let data = await res.json();
+    let cerpen = data.result;
+    let caption = `📖 *Cerpen Misteri*\n\n` +
+                 `*Judul:* ${cerpen.title}\n` +
+                 `*Penulis:* ${cerpen.author}\n` +
+                 `*Kategori:* ${cerpen.kategori}\n` +
+                 `*Tanggal:* ${cerpen.lolos}\n\n` +
+                 `${cerpen.cerita}`;
+    beta.sendMessage(m.chat, { text: caption }, { quoted: m });
+}
+break
+
+case 'cerpencinta': {
+    await loading();
+    let res = await fetch(`https://api.betabotz.eu.org/api/story/cerpen?type=cinta&apikey=${btz}`)
+    if (!res.ok) throw await res.text();
+    let data = await res.json();
+    let cerpen = data.result;
+    let caption = `📖 *Cerpen Cinta*\n\n` +
+                 `*Judul:* ${cerpen.title}\n` +
+                 `*Penulis:* ${cerpen.author}\n` +
+                 `*Kategori:* ${cerpen.kategori}\n` +
+                 `*Tanggal:* ${cerpen.lolos}\n\n` +
+                 `${cerpen.cerita}`;
+    beta.sendMessage(m.chat, { text: caption }, { quoted: m });
+}
+break
+
+case 'cerpenbudaya': {
+    await loading();
+    let res = await fetch(`https://api.betabotz.eu.org/api/story/cerpen?type=budaya&apikey=${btz}`)
+    if (!res.ok) throw await res.text();
+    let data = await res.json();
+    let cerpen = data.result;
+    let caption = `📖 *Cerpen Budaya*\n\n` +
+                 `*Judul:* ${cerpen.title}\n` +
+                 `*Penulis:* ${cerpen.author}\n` +
+                 `*Kategori:* ${cerpen.kategori}\n` +
+                 `*Tanggal:* ${cerpen.lolos}\n\n` +
+                 `${cerpen.cerita}`;
+    beta.sendMessage(m.chat, { text: caption }, { quoted: m });
+}
+break
+
+case 'cerpenromantis': {
+    await loading();
+    let res = await fetch(`https://api.betabotz.eu.org/api/story/cerpen?type=romantis&apikey=${btz}`)
+    if (!res.ok) throw await res.text();
+    let data = await res.json();
+    let cerpen = data.result;
+    let caption = `📖 *Cerpen Romantis*\n\n` +
+                 `*Judul:* ${cerpen.title}\n` +
+                 `*Penulis:* ${cerpen.author}\n` +
+                 `*Kategori:* ${cerpen.kategori}\n` +
+                 `*Tanggal:* ${cerpen.lolos}\n\n` +
+                 `${cerpen.cerita}`;
+    beta.sendMessage(m.chat, { text: caption }, { quoted: m });
+}
+break
+
+case 'cerpengalau': {
+    await loading();
+    let res = await fetch(`https://api.betabotz.eu.org/api/story/cerpen?type=galau&apikey=${btz}`)
+    if (!res.ok) throw await res.text();
+    let data = await res.json();
+    let cerpen = data.result;
+    let caption = `📖 *Cerpen Galau*\n\n` +
+                 `*Judul:* ${cerpen.title}\n` +
+                 `*Penulis:* ${cerpen.author}\n` +
+                 `*Kategori:* ${cerpen.kategori}\n` +
+                 `*Tanggal:* ${cerpen.lolos}\n\n` +
+                 `${cerpen.cerita}`;
+    beta.sendMessage(m.chat, { text: caption }, { quoted: m });
+}
+break
+
+case 'cerpeninspirasi': {
+    await loading();
+    let res = await fetch(`https://api.betabotz.eu.org/api/story/cerpen?type=inspiratif&apikey=${btz}`)
+    if (!res.ok) throw await res.text();
+    let data = await res.json();
+    let cerpen = data.result;
+    let caption = `📖 *Cerpen Inspiratif*\n\n` +
+                 `*Judul:* ${cerpen.title}\n` +
+                 `*Penulis:* ${cerpen.author}\n` +
+                 `*Kategori:* ${cerpen.kategori}\n` +
+                 `*Tanggal:* ${cerpen.lolos}\n\n` +
+                 `${cerpen.cerita}`;
+    beta.sendMessage(m.chat, { text: caption }, { quoted: m });
+}
+break
+
+case 'cerpenkehidupan': {
+    await loading();
+    let res = await fetch(`https://api.betabotz.eu.org/api/story/cerpen?type=kehidupan&apikey=${btz}`)
+    if (!res.ok) throw await res.text();
+    let data = await res.json();
+    let cerpen = data.result;
+    let caption = `📖 *Cerpen Kehidupan*\n\n` +
+                 `*Judul:* ${cerpen.title}\n` +
+                 `*Penulis :* ${cerpen.author}\n` +
+                 `*Kategori:* ${cerpen.kategori}\n` +
+                 `*Tanggal:* ${cerpen.lolos}\n\n` +
+                 `${cerpen.cerita}`;
+    beta.sendMessage(m.chat, { text: caption }, { quoted: m });
+}
+break
+
+case 'cerpenkorea': {
+    await loading();
+    let res = await fetch(`https://api.betabotz.eu.org/api/story/cerpen?type=korea&apikey=${btz}`)
+    if (!res.ok) throw await res.text();
+    let data = await res.json();
+    let cerpen = data.result;
+    let caption = `📖 *Cerpen Korea*\n\n` +
+                 `*Judul:* ${cerpen.title}\n` +
+                 `*Penulis:* ${cerpen.author}\n` +
+                 `*Kategori:* ${cerpen.kategori}\n` +
+                 `*Tanggal:* ${cerpen.lolos}\n\n` +
+                 `${cerpen.cerita}`;
+    beta.sendMessage(m.chat, { text: caption }, { quoted: m });
+}
+break
+
 //===============================================================================================\\
 
             // Download © JERO BAIK
