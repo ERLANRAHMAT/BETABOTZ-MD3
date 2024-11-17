@@ -150,6 +150,21 @@ global.menunya = (run, mode, jam, tanggal, owner, prefix) =>{
 │
 ╰❒ 
 
+╭─❒ 「 *CERPEN* 」
+│
+│> ${prefix}cerpenremaja
+│> ${prefix}cerpenanak
+│> ${prefix}cerpenmisteri
+│> ${prefix}cerpencinta
+│> ${prefix}cerpenbudaya
+│> ${prefix}cerpenromantis
+│> ${prefix}cerpengalau
+│> ${prefix}cerpeninspirasi
+│> ${prefix}cerpenkehidupan
+│> ${prefix}cerpenkorea
+│
+╰❒ 
+
 ╭─❒ 「 *DOWNLOAD* 」
 │> ${prefix}terabox
 │> ${prefix}capcut
