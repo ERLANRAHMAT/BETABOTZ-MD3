@@ -26,6 +26,7 @@ const {
     delay
 } = require("@whiskeysockets/baileys")
 
+const sharp = require('sharp');
 const fs = require('fs');
 const os = require('os')
 const util = require('util');
@@ -35,6 +36,9 @@ const moment = require('moment-timezone');
 const ms = toMs = require('ms');
 const fetch = require('node-fetch')
 const { createSticker } = require('wa-sticker-formatter')
+
+const { writeExifImg, writeExifVid } = require("./lib/exif");
+const { imageToWebp, videoToWebp } = require("./lib/convert");
 
 const {
     exec,
@@ -1363,6 +1367,55 @@ case 'cerpenkorea': {
     beta.sendMessage(m.chat, { text: caption }, { quoted: m });
 }
 break
+
+//======================================================================================\\
+
+
+case 'ttp': {
+    if (!text) return m.reply('Masukkan teks! Contoh: #ttp Hello World');
+    await loading();
+    let res = await fetch(`https://api.betabotz.eu.org/api/maker/ttp?text=${encodeURIComponent(text)}&apikey=${btz}`);
+    if (!res.ok) throw await res.text();
+    let imageBuffer = await res.buffer();
+
+    let webpBuffer = await sharp(imageBuffer).webp().toBuffer();
+
+    beta.sendFile(m.chat, webpBuffer, 'ttp.webp', '', m, {
+        asSticker: true,
+    });
+}
+break;
+
+case 'attp': {
+    if (!text) return m.reply('Masukkan teks! Contoh: #attp Hello World');
+    await loading();
+    let res = await fetch(`https://api.betabotz.eu.org/api/maker/attp?text=${encodeURIComponent(text)}&apikey=${btz}`);
+    if (!res.ok) throw await res.text();
+    let imageBuffer = await res.buffer();
+
+    let webpBuffer = await sharp(imageBuffer).webp().toBuffer();
+
+    beta.sendFile(m.chat, webpBuffer, 'attp.webp', '', m, {
+        asSticker: true, 
+    });
+}
+break;
+
+case 'brat': {
+    if (!text) return m.reply('Masukkan teks! Contoh: #brat Hello World');
+    await loading();
+    let res = await fetch(`https://api.betabotz.eu.org/api/maker/brat?text=${encodeURIComponent(text)}&apikey=${btz}`);
+    if (!res.ok) throw await res.text();
+    let imageBuffer = await res.buffer();
+
+    let webpBuffer = await sharp(imageBuffer).webp().toBuffer();
+
+    beta.sendFile(m.chat, webpBuffer, 'brat.webp', '', m, {
+        asSticker: true, 
+    });
+}
+break;
+
 
 //===============================================================================================\\
 
