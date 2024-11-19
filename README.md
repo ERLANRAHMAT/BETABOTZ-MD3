@@ -69,6 +69,7 @@ npm start
 
 ```javascript
 Thanks To:
-ErlanRahmat
-JerOfc
+• ErlanRahmat
+• JerOfc
+• Pasya
 ```
