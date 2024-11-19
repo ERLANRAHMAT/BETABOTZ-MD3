@@ -284,6 +284,9 @@ global.menunya = (run, mode, jam, tanggal, owner, prefix) =>{
 │> ${prefix}togta
 │> ${prefix}jadigta
 │> ${prefix}qc
+│> ${prefix}attp
+│> ${prefix}ttp
+│> ${prefix}brat
 │
 ╰❒ 
 
