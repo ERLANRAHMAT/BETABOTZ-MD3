@@ -35,6 +35,17 @@ global.menunya = (run, mode, jam, tanggal, owner, prefix) =>{
 │
 ╰❒ 
 
+╭─❒ 「 *RPG* 」
+│
+│> ${prefix}grupbot
+│> ${prefix}owner
+│> ${prefix}runtime
+│> ${prefix}sc
+│> ${prefix}tqto
+│> ${prefix}limit
+│
+╰❒ 
+
 ╭─❒ 「 *INFO* 」
 │
 │> ${prefix}grupbot
@@ -42,6 +53,7 @@ global.menunya = (run, mode, jam, tanggal, owner, prefix) =>{
 │> ${prefix}runtime
 │> ${prefix}sc
 │> ${prefix}tqto
+│> ${prefix}limit
 │
 ╰❒ 
 
