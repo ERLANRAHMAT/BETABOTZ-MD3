@@ -113,6 +113,23 @@ module.exports = beta = async (beta, m, chatUpdate, store, antilink, antiwame, a
         const time = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('HH:mm:ss z')
         const isAfkOn = afk.checkAfkUser(m.sender, _afk)
         const Antinsfw = ntnsfw.includes(m.chat) ? true : false
+        
+        
+//JANGAN DI HAPUS KALAU GK MAU ERROR
+const { getLimit, decreaseLimit, checkAndResetLimits, checkLimit } = require('./lib/limit');
+setInterval(checkAndResetLimits, 60000);
+//Di Bawah Ini Total konsumsi limit ©By PasyaGanz
+const limitCost = 1;
+const limitCost2 = 2;
+const limitCost3 = 3;
+const limitCost4 = 4;
+const limitCost5 = 5;
+const limitCost6 = 6;
+const limitCost7 = 7;
+const limitCost8 = 8;
+const limitCost9 = 9;
+const limitCost10 = 10;
+//============================\\
 
         const reply = async (text) => {
             return await beta.sendFakeLink(m.chat, text, salam, pushname, m)
@@ -868,6 +885,10 @@ if (m.isGroup && !m.key.fromMe && !isCmd && global.autodownload) {
             case 'bardai':
             case 'gemini':
                 {
+                    if (!checkLimit(m.sender, limitCost2)) {
+                        const userLimit = getLimit(m.sender);
+                        return reply(`Limit kamu tidak cukup!\nLimit tersisa: ${userLimit.limit}\nLimit yang dibutuhkan: ${limitCost2}`);
+                    }
                     if (!text) return reply('Mau Nanya Apa Sayang?');
                     try {
                         let aii = await fetchJson(`https://api.betabotz.eu.org/api/search/bard-ai?text=${text}&apikey=${btz}`);
@@ -876,7 +897,10 @@ if (m.isGroup && !m.key.fromMe && !isCmd && global.autodownload) {
                         console.error(err);
                         reply(message.error);
                     }
-                }
+                decreaseLimit(m.sender, limitCost2);
+                    const remainingLimit = getLimit(m.sender).limit;
+                    reply(`Berhasil ${limitCost2} limit terpakai\nSisa limit: ${remainingLimit}`);
+                    }
                 break
 
             case 'bardimg':
@@ -968,6 +992,10 @@ if (m.isGroup && !m.key.fromMe && !isCmd && global.autodownload) {
             //Asupan
             case 'asupan':
                 {
+                    if (!checkLimit(m.sender, limitCost)) {
+                        const userLimit = getLimit(m.sender);
+                        return reply(`Limit kamu tidak cukup!\nLimit tersisa: ${userLimit.limit}\nLimit yang dibutuhkan: ${limitCost}`);
+                    }
                     loading();
                     const asupan = [
                         `https://api.betabotz.eu.org/api/asupan/rikagusriani?apikey=${btz}`,
@@ -1030,6 +1058,13 @@ if (m.isGroup && !m.key.fromMe && !isCmd && global.autodownload) {
                 break
                 
 // Nambahin doang ©by PasyaGanz
+
+
+case 'limit': {
+    const userLimit = getLimit(m.sender)
+    reply(`Limit kamu tersisa: ${userLimit.limit}`)
+    break
+}
 
 case 'terabox':
 {
@@ -1625,6 +1660,10 @@ break;
             }
                 break
             case 'ytmp4': {
+            if (!checkLimit(m.sender, limitCost2)) {
+                        const userLimit = getLimit(m.sender);
+                        return reply(`Limit kamu tidak cukup!\nLimit tersisa: ${userLimit.limit}\nLimit yang dibutuhkan: ${limitCost2}`);
+                    }
                 if (!args[0]) return reply(`Input Parameter Url Dari ${command}\n\nExample : ${prefix + command} Url`)
                 await loading();
                 let api = await fetch(`https://api.betabotz.eu.org/api/download/ytmp4?url=${args[0]}&apikey=${btz}`)
@@ -1654,9 +1693,16 @@ break;
                 }, {
                     quoted: m
                 })
-            }
+            decreaseLimit(m.sender, limitCost2);
+                    const remainingLimit = getLimit(m.sender).limit;
+                    reply(`Berhasil ${limitCost2} limit terpakai\nSisa limit: ${remainingLimit}`);
+                    }
                 break
             case 'ytmp3': {
+                if (!checkLimit(m.sender, limitCost2)) {
+                        const userLimit = getLimit(m.sender);
+                        return reply(`Limit kamu tidak cukup!\nLimit tersisa: ${userLimit.limit}\nLimit yang dibutuhkan: ${limitCost2}`);
+                    }
                 if (!args[0]) return reply(`Input Parameter Url Dari ${command}\n\nExample : ${prefix + command} Url`)
                 await loading();
                 let api = await fetch(`https://api.betabotz.eu.org/api/download/ytmp4?url=${args[0]}&apikey=${btz}`)
@@ -1685,12 +1731,19 @@ break;
                 }, {
                     quoted: m
                 })
-            }
+            decreaseLimit(m.sender, limitCost2);
+                    const remainingLimit = getLimit(m.sender).limit;
+                    reply(`Berhasil ${limitCost2} limit terpakai\nSisa limit: ${remainingLimit}`);
+                    }
                 break
             case 'fbvid':
             case 'fbvideo':
             case 'facebook':
             case 'fb': {
+            if (!checkLimit(m.sender, limitCost)) {
+                        const userLimit = getLimit(m.sender);
+                        return reply(`Limit kamu tidak cukup!\nLimit tersisa: ${userLimit.limit}\nLimit yang dibutuhkan: ${limitCost}`);
+                    }
                 if (!args[0]) return reply(`Input Parameter Url Dari ${command}\n\nExample : ${prefix + command} Url`)
                 await loading();
                 let api = await fetch(`https://api.betabotz.eu.org/api/download/fbdown?url=${args[0]}&apikey=${btz}`)
@@ -1703,11 +1756,18 @@ break;
                 }, {
                     quoted: m
                 })
-            }
+            decreaseLimit(m.sender, limitCost);
+                    const remainingLimit = getLimit(m.sender).limit;
+                    reply(`Berhasil ${limitCost} limit terpakai\nSisa limit: ${remainingLimit}`);
+                    }
                 break
             case 'tt':
             case 'tiktok':
                 {
+                    if (!checkLimit(m.sender, limitCost)) {
+                        const userLimit = getLimit(m.sender);
+                        return reply(`Limit kamu tidak cukup!\nLimit tersisa: ${userLimit.limit}\nLimit yang dibutuhkan: ${limitCost}`);
+                    }
                     if (!args[0]) return reply(`Input Parameter Url Dari ${command}\n\nExample : ${prefix + command} Url`)
                     await loading();
                     let api = await fetch(`https://api.betabotz.eu.org/api/download/tiktok?url=${args[0]}&apikey=${btz}`)
@@ -1730,11 +1790,18 @@ break;
                     }, {
                         quoted: m
                     })
-                }
+                    decreaseLimit(m.sender, limitCost);
+                    const remainingLimit = getLimit(m.sender).limit;
+                    reply(`Berhasil ${limitCost} limit terpakai\nSisa limit: ${remainingLimit}`);
+                    }
                 break
             case 'tiktokslide':
             case 'tiktokimg':
                 {
+                    if (!checkLimit(m.sender, limitCost)) {
+                        const userLimit = getLimit(m.sender);
+                        return reply(`Limit kamu tidak cukup!\nLimit tersisa: ${userLimit.limit}\nLimit yang dibutuhkan: ${limitCost}`);
+                    }
                     if (!args[0]) return reply(`Input Parameter Url Dari ${command}\n\nExample : ${prefix + command} Url`)
                     await loading();
                     let api = await fetch(`https://api.betabotz.eu.org/api/download/ttslide?url=${args[0]}&apikey=${btz}`)
@@ -1749,7 +1816,10 @@ break;
                             quoted: m
                         })
                     }
-                }
+                decreaseLimit(m.sender, limitCost);
+                    const remainingLimit = getLimit(m.sender).limit;
+                    reply(`Berhasil ${limitCost} limit terpakai\nSisa limit: ${remainingLimit}`);
+                    }
                 break
             case 'igdl':
             case 'ig':
