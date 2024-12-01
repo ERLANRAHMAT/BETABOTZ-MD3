@@ -43,6 +43,17 @@ global.menunya = (run, mode, jam, tanggal, owner, prefix) =>{
 │> ${prefix}sc
 │> ${prefix}tqto
 │> ${prefix}limit
+│> ${prefix}buy
+│> ${prefix}shop
+│> ${prefix}inventory
+│> ${prefix}adventure
+│> ${prefix}mining
+│> ${prefix}level
+│> ${prefix}sell
+│> ${prefix}toko
+│> ${prefix}inv
+│> ${prefix}petualang
+│> ${prefix}mine
 │
 ╰❒ 
 
