@@ -116,6 +116,10 @@ module.exports = beta = async (beta, m, chatUpdate, store, antilink, antiwame, a
         
         
 //JANGAN DI HAPUS KALAU GK MAU ERROR
+//© MAKE BY PASYAGANZ
+const miningSystem = require('./rpgdata/mining.js');
+const adventureSystem = require('./rpgdata/adventure.js');
+const inventorySystem = require('./rpgdata/inventory.js');
 const { getLimit, decreaseLimit, checkAndResetLimits, checkLimit } = require('./lib/limit');
 setInterval(checkAndResetLimits, 60000);
 //Di Bawah Ini Total konsumsi limit ©By PasyaGanz
@@ -1057,14 +1061,146 @@ if (m.isGroup && !m.key.fromMe && !isCmd && global.autodownload) {
                 }
                 break
                 
-// Nambahin doang ©by PasyaGanz
-
+//MAKE BY PASYAGANZ
 
 case 'limit': {
     const userLimit = getLimit(m.sender)
     reply(`Limit kamu tersisa: ${userLimit.limit}`)
     break
 }
+
+
+case 'mining':
+case 'mine': {
+    if (!m.isGroup) return reply('Perintah Ini Hanya Bisa Diakses Di Group')
+    if (getLimit(sender) < 2) return reply(`Limit kamu tidak cukup, minimal 2 limit untuk menggunakan fitur ini`)
+    decreaseLimit(sender, 2)
+    
+    if (!miningSystem.canMine(sender)) {
+        const timeLeft = miningSystem.getMiningData(sender).lastMined + 300000 - Date.now();
+        return reply(`⏳ Anda harus menunggu ${Math.ceil(timeLeft/1000)} detik sebelum bisa mining lagi!`);
+    }
+    
+    const result = miningSystem.mine(sender);
+    reply(`🎉 Selamat! Anda mendapatkan ${result.amount}x ${result.item} dari hasil mining!`);
+break
+}
+
+
+case 'adventure':
+case 'petualang': {
+    if (!m.isGroup) return reply('Perintah Ini Hanya Bisa Diakses Di Group')
+    if (getLimit(sender) < 3) return reply(`Limit kamu tidak cukup, minimal 3 limit untuk menggunakan fitur ini`)
+    decreaseLimit(sender, 3)
+    
+    if (!text) return reply(`🗺️ Pilih lokasi petualangan:
+
+- forest (Hutan) 🌲
+- cave (Gua) 🕳️
+- mountain (Gunung) ⛰️`)
+    
+    if (!adventureSystem.canAdventure(sender)) {
+        const timeLeft = adventureSystem.getAdventureData(sender).lastAdventure + 600000 - Date.now();
+        return reply(`⏳ Anda harus menunggu ${Math.ceil(timeLeft/1000)} detik sebelum bisa berpetualang lagi!`);
+    }
+    
+    const result = adventureSystem.adventure(sender, text.toLowerCase());
+    if (!result) return reply('❌ Lokasi tidak valid!');
+    
+    let message = `🗺️ Hasil Petualangan di ${text}:\n`;
+    message += `➣ Mendapatkan: ${result.item}\n`;
+    message += `➣ Mengalahkan: ${result.monster}\n`;
+    message += `➣ EXP: +${result.exp}`;
+    
+    if (result.levelUp) {
+        message += `\n\n🎉 Selamat! Level Up!`;
+    }
+    
+    reply(message);
+break
+}
+
+
+case 'inventory':
+case 'inv': {
+    if (!m.isGroup) return reply('Perintah Ini Hanya Bisa Diakses Di Group')
+    
+    const inv = inventorySystem.getInventoryData(sender);
+    let message = `📋 Inventory ${pushname}\n\n`;
+    message += `💰 Koin: ${inv.coins}\n\n`;
+    message += `📦 Items:\n`;
+    
+    for (const [item, quantity] of Object.entries(inv.items)) {
+        message += `➣ ${item}: ${quantity}\n`;
+    }
+    
+    reply(message);
+break
+}
+
+case 'shop':
+case 'toko': {
+    if (!m.isGroup) return reply('Perintah Ini Hanya Bisa Diakses Di Group')
+    if (getLimit(sender) < 1) return reply(`Limit kamu tidak cukup, minimal 1 limit untuk menggunakan fitur ini`)
+    decreaseLimit(sender, 1)
+    
+    let message = `🏪 RPG Shop\n\n`;
+    for (const [item, data] of Object.entries(inventorySystem.shopItems)) {
+        message += `➣ ${item}\n`;
+        message += `   💰 Harga: ${data.price} koin\n`;
+        message += `   📝 Info: ${data.description}\n\n`;
+    }
+    message += `\nCara membeli: .buy <item> <jumlah>`;
+    
+    reply(message);
+break
+}
+
+
+case 'buy':
+case 'beli': {
+    if (!m.isGroup) return reply('Perintah Ini Hanya Bisa Diakses Di Group')
+    
+    if (!text) return reply(`❌ Format salah!\nContoh: .buy health_potion 2`);
+    
+    const [item, amount] = text.split(' ');
+    const quantity = parseInt(amount) || 1;
+    
+    const result = inventorySystem.buyItem(sender, item, quantity);
+    reply(result.message);
+break
+}
+
+
+case 'sell':
+case 'jual': {
+    if (!m.isGroup) return reply('Perintah Ini Hanya Bisa Diakses Di Group')
+    
+    if (!text) return reply(`❌ Format salah!\nContoh: .sell stone 5`);
+    
+    const [item, amount] = text.split(' ');
+    const quantity = parseInt(amount) || 1;
+    
+    const result = inventorySystem.sellItem(sender, item, quantity);
+    reply(result.message);
+break
+}
+
+
+case 'level':
+case 'lvl': {
+    if (!m.isGroup) return reply('Perintah Ini Hanya Bisa Diakses Di Group')
+    
+    const userData = adventureSystem.getAdventureData(sender);
+    let message = `📊 Status ${pushname}\n\n`;
+    message += `➣ Level: ${userData.level}\n`;
+    message += `➣ EXP: ${userData.exp}/${userData.level * 100}\n`;
+    message += `➣ Progress: ${Math.floor((userData.exp/(userData.level * 100)) * 100)}%`;
+    
+    reply(message);
+break
+}
+//=====================================================================
 
 case 'terabox':
 {
