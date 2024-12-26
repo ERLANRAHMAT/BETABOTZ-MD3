@@ -57,6 +57,12 @@ global.menunya = (run, mode, jam, tanggal, owner, prefix) =>{
 │
 ╰❒ 
 
+╭─❒ 「 *GAME* 」
+│
+│> ${prefix}tekateki
+│
+╰❒ 
+
 ╭─❒ 「 *INFO* 」
 │
 │> ${prefix}grupbot
