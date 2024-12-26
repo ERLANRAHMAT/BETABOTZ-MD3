@@ -1061,7 +1061,79 @@ if (m.isGroup && !m.key.fromMe && !isCmd && global.autodownload) {
                 }
                 break
                 
+                
+                
 //MAKE BY PASYAGANZ
+
+case 'tekateki': {
+    try {
+        const options = {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'User-Agent': 'WhatsApp Bot/1.0'
+            }
+        };
+
+        const response = await fetch(`https://api.betabotz.eu.org/api/game/tekateki?apikey=${btz}`, options);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (Array.isArray(data)) {
+            const randomRiddle = data[Math.floor(Math.random() * data.length)];
+            if (randomRiddle.status && randomRiddle.data) {
+                const riddle = `🎮 *TEKA-TEKI*\n\n*Pertanyaan:* ${randomRiddle.data.pertanyaan}\n\n_Ketik *.jawab <jawaban kamu>* untuk menjawab_`;
+                
+                global.tekateki = global.tekateki || {};
+                global.tekateki[m.chat] = randomRiddle.data.jawaban.toLowerCase();
+                
+                m.reply(riddle);
+            } else {
+                m.reply('❌ Format data tidak valid');
+            }
+        } else if (data.status && data.data) {
+            const riddle = `🎮 *TEKA-TEKI*\n\n*Pertanyaan:* ${data.data.pertanyaan}\n\n_Ketik *.jawab <jawaban kamu>* untuk menjawab_`;
+            
+            global.tekateki = global.tekateki || {};
+            global.tekateki[m.chat] = data.data.jawaban.toLowerCase();
+            
+            m.reply(riddle);
+        } else {
+            m.reply('❌ Format response tidak valid');
+        }
+    } catch (error) {
+        console.error('Error in tekateki:', error);
+        m.reply(`❌ Terjadi kesalahan: ${error.message}`);
+    }
+    break;
+}
+
+case 'jawab': {
+    if (!global.tekateki || !global.tekateki[m.chat]) {
+        return m.reply('❌ Tidak ada teka-teki aktif saat ini\n\nKetik *.tekateki* untuk mendapatkan pertanyaan baru');
+    }
+
+    if (!args.length) {
+        return m.reply('❌ Mohon masukkan jawaban anda\n\nContoh: *.jawab sapiderman*');
+    }
+
+    const answer = args.join(' ').toLowerCase().trim();
+    const correctAnswer = global.tekateki[m.chat];
+
+    if (answer === correctAnswer) {
+        delete global.tekateki[m.chat];
+        m.reply('🎉 *Selamat!* Jawaban kamu benar!\n\nKetik *.tekateki* untuk mendapatkan pertanyaan baru');
+    } else {
+        m.reply('❌ Jawaban salah, coba lagi!');
+    }
+    break;
+}
+
+
 
 case 'limit': {
     const userLimit = getLimit(m.sender)
