@@ -1660,6 +1660,101 @@ case 'brat': {
 break;
 
 
+
+case 'tomp3url': {
+    if (!quoted) return reply(`Audio/Musiknya Mana?`)
+    if (!/audio/.test(mime)) return reply(`Kirim/Reply Audio Dengan Caption ${prefix + command}`)
+    await loading();
+    let media = await quoted.download();
+    let isAudio = /audio\/(mp3)/.test(mime)
+    let audio = await (isAudio ? uploadImage : uploadImage)(media)
+    reply(`${audio}`)
+}
+break
+
+case 'tomp4url': {
+    if (!quoted) return reply(`Videonya Mana?`)
+    if (!/video/.test(mime)) return reply(`Kirim/Reply Video Dengan Caption ${prefix + command}`)
+    await loading();
+    let media = await quoted.download();
+    let isVideo = /video\/mp4/.test(mime)
+    let video = await (isVideo ? uploadImage : uploadImage)(media)
+    reply(`${video}`)
+}
+break
+
+case 'bardaudio': {
+    if (!text) {
+        return reply(`*🤖 Panduan Fitur Bard Audio*
+
+1️⃣ Upload audio dulu:
+   • Kirim audio/musik yang ingin dianalisis
+   • Balas audio dengan perintah .tomp3url
+   • Bot akan memberikan URL hasil upload
+
+2️⃣ Tanyakan ke Bard:
+   • Gunakan format: .bardaudio [URL] [pertanyaan]
+   
+📝 Contoh penggunaan:
+.bardaudio https://example.com/music.mp3 deskripsikan lagu ini
+
+⚠️ Note: Gunakan URL hasil upload dari bot (.tomp3url)`)
+    }
+    
+    let [url, ...query] = text.split(' ')
+    if (!url || !query) return reply(`Format salah! Gunakan: ${prefix + command} url pertanyaan`)
+    
+    try {
+        await loading()
+        let api = `https://api.betabotz.eu.org/api/search/bard-audio?url=${url}&text=${query.join(' ')}&apikey=${btz}`
+        let response = await fetch(api)
+        let json = await response.json()
+        
+        reply(json.result) 
+    } catch (e) {
+        reply('Terjadi kesalahan, coba lagi nanti')
+    }
+}
+break
+
+
+case 'bardvideo': {
+    if (!text) {
+        return reply(`*🤖 Panduan Fitur Bard Video*
+
+1️⃣ Upload video dulu:
+   • Kirim video yang ingin dianalisis
+   • Balas video dengan perintah .tomp4url
+   • Bot akan memberikan URL hasil upload
+
+2️⃣ Tanyakan ke Bard:
+   • Gunakan format: .bardvideo [URL] [pertanyaan]
+   
+📝 Contoh penggunaan:
+.bardvideo https://example.com/video.mp4 jelaskan apa yang terjadi di video ini
+
+⚠️ Note: Gunakan URL hasil upload dari bot (.tomp4url)`)
+    }
+    
+    let [url, ...query] = text.split(' ')
+    if (!url || !query) return reply(`Format salah! Gunakan: ${prefix + command} url pertanyaan`) 
+    
+    try {
+        await loading()
+        let api = `https://api.betabotz.eu.org/api/search/bard-video?url=${url}&text=${query.join(' ')}&apikey=${btz}`
+        let response = await fetch(api)
+        let json = await response.json()
+        
+        reply(json.result)
+    } catch (e) {
+        reply('Terjadi kesalahan, coba lagi nanti')
+    }
+}
+break
+
+
+
+
 //===============================================================================================\\
 
             // Download © JERO BAIK
