@@ -93,7 +93,9 @@ global.menunya = (run, mode, jam, tanggal, owner, prefix) =>{
 │> ${prefix}bardimg
 │> ${prefix}bingchat
 │> ${prefix}bingimg
-│> ${prefix}simi
+│> ${prefix}bardaudio
+│> ${prefix}bardvideo
+
 │
 ╰❒ 
 
@@ -404,6 +406,8 @@ global.menunya = (run, mode, jam, tanggal, owner, prefix) =>{
 │> ${prefix}tinyurl
 │> ${prefix}translate
 │> ${prefix}recolor
+│> ${prefix}tomp3url
+│> ${prefix}tomp4url
 │
 ╰❒ 
 `
